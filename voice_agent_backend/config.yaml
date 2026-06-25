@@ -1,0 +1,49 @@
+# ═══════════════════════════════════════════════════════════════
+# MILA VOICE AGENT — Configurazione
+# ═══════════════════════════════════════════════════════════════
+
+agent:
+  name: "Mila"
+  language: "it"                  # it = italiano | es = spagnolo | en = inglese
+  wake_word: "mila"               # parola di attivazione
+  hotkey: "ctrl+shift+m"          # hotkey alternativa
+  silence_threshold: 1.5          # secondi di silenzio per terminare la frase
+
+stt:
+  provider: "whisper"             # whisper (locale) | deepgram (cloud)
+  whisper_model: "small"          # tiny | base | small | medium | large
+  language: "it"
+  device: "cpu"                   # cpu | cuda (se hai GPU)
+
+tts:
+  provider: "elevenlabs"          # elevenlabs | openai
+  voice_id: "2229966d4eec1b2b084e9fb7950782b1897187ad"  # voce configurata
+  model: "eleven_multilingual_v2" # modello multilingua
+  speed: 1.05                     # velocità (1.0 = normale)
+  stability: 0.65
+  similarity_boost: 0.80
+
+brain:
+  url: "https://aherreras.app.n8n.cloud/webhook/mila-holding-brain/chat"
+  timeout: 45                     # secondi timeout risposta Brain
+  session_id: "mila-voice-local"  # ID sessione memoria
+
+audio:
+  input_device: null              # null = default mic
+  output_device: null             # null = default speaker
+  sample_rate: 16000
+  channels: 1
+  chunk_size: 1024
+
+google:
+  credentials_file: "auth/google_credentials.json"
+  token_file: "~/.mila/google_token.json"
+  scopes:
+    - "https://www.googleapis.com/auth/gmail.modify"
+    - "https://www.googleapis.com/auth/calendar"
+    - "https://www.googleapis.com/auth/drive"
+
+logging:
+  level: "INFO"                   # DEBUG | INFO | WARNING | ERROR
+  file: "~/.mila/mila.log"
+  max_size_mb: 50

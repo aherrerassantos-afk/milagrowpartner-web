@@ -1,0 +1,43 @@
+# ── AUDIO ──────────────────────────────────────────────────────
+pyaudio==0.2.14
+sounddevice==0.4.7
+numpy==1.26.4
+
+# ── STT — Speech to Text ────────────────────────────────────────
+openai-whisper==20231117
+deepgram-sdk==3.7.7          # alternativa cloud (più veloce)
+
+# ── TTS — Text to Speech ────────────────────────────────────────
+elevenlabs==1.9.0
+
+# ── WAKE WORD ───────────────────────────────────────────────────
+pvporcupine==3.0.2
+
+# ── LLM / AI ────────────────────────────────────────────────────
+anthropic==0.40.0
+openai==1.54.0
+
+# ── WEB / API ───────────────────────────────────────────────────
+fastapi==0.115.0
+uvicorn==0.32.0
+requests==2.32.3
+httpx==0.27.2
+aiohttp==3.11.0
+
+# ── GOOGLE APIs ─────────────────────────────────────────────────
+google-auth==2.36.0
+google-auth-oauthlib==1.2.1
+google-auth-httplib2==0.2.0
+google-api-python-client==2.154.0
+
+# ── UTILS ───────────────────────────────────────────────────────
+python-dotenv==1.0.1
+pyyaml==6.0.2
+keyboard==0.13.5
+rich==13.9.4               # logging colorato in terminale
+pydantic==2.9.2
+python-dateutil==2.9.0
+
+# ── MAC SPECIFICO ───────────────────────────────────────────────
+pyobjc-framework-Cocoa==10.3.1   # menu bar Mac (fase 3)
+rumps==0.4.0                     # menu bar app semplice

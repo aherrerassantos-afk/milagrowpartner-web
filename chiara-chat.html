@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiara — Palazzo Blue Arroyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- n8n Chat Widget -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blu:   #4a90d9;
+      --blu2:  #2c6fad;
+      --dark:  #0d1a2b;
+      --mid:   #1a2f48;
+      --light: #e8f0fb;
+      --white: #ffffff;
+      --gold:  #b8965a;
+    }
+
+    html, body { height: 100%; font-family: 'Inter', sans-serif; background: var(--dark); }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: var(--mid);
+      border-bottom: 1px solid rgba(74,144,217,.25);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    }
+    .header-brand { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blu), var(--blu2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(74,144,217,.4);
+    }
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; color: var(--white);
+      letter-spacing: 0.03em;
+    }
+    .brand-sub { font-size: 0.68rem; color: #7fb3e8; text-transform: uppercase; letter-spacing: 0.1em; }
+    .status-pill {
+      display: flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 20px;
+      background: rgba(74,144,217,.12); border: 1px solid rgba(74,144,217,.3);
+      font-size: 0.68rem; color: #7fb3e8; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4cdf88;
+      box-shadow: 0 0 6px #4cdf88;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ── SESSION SELECTOR ── */
+    .session-bar {
+      position: fixed; top: 66px; left: 0; right: 0; z-index: 99;
+      background: rgba(13,26,43,.95);
+      border-bottom: 1px solid rgba(74,144,217,.15);
+      display: flex; gap: 4px; padding: 8px 20px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .session-bar::-webkit-scrollbar { display: none; }
+    .sess-btn {
+      padding: 6px 14px; border-radius: 20px;
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
+      font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(74,144,217,.08); border: 1px solid rgba(74,144,217,.2);
+      color: #7fb3e8; cursor: pointer; white-space: nowrap;
+      transition: all .2s;
+    }
+    .sess-btn:hover { background: rgba(74,144,217,.2); color: #fff; }
+    .sess-btn.active {
+      background: var(--blu); border-color: var(--blu);
+      color: #fff; box-shadow: 0 2px 12px rgba(74,144,217,.35);
+    }
+
+    /* ── CHAT AREA ── */
+    .chat-wrap {
+      position: fixed;
+      top: 112px; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+    }
+
+    /* Ovverride n8n chat widget per dark blue theme */
+    :root {
+      --chat--color-primary: #4a90d9;
+      --chat--color-primary-shade-50: #3a7abf;
+      --chat--color-primary-shade-100: #2c6fad;
+      --chat--color-secondary: #1a2f48;
+      --chat--color-secondary-shade-50: #0d1a2b;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #e8f0fb;
+      --chat--color-light-shade-50: #d0e3f7;
+      --chat--color-light-shade-100: #b8d5f0;
+      --chat--color-medium: #7fb3e8;
+      --chat--color-dark: #0d1a2b;
+      --chat--color-disabled: #3a4d62;
+      --chat--color-typing: #7fb3e8;
+
+      --chat--header--background: #1a2f48;
+      --chat--header--color: #ffffff;
+      --chat--body--background: #0d1a2b;
+      --chat--message--bot--background: #1a2f48;
+      --chat--message--bot--color: #e8f0fb;
+      --chat--message--user--background: #4a90d9;
+      --chat--message--user--color: #ffffff;
+      --chat--input--background: #1a2f48;
+      --chat--input--color: #e8f0fb;
+      --chat--input--placeholder--color: #5a7fa0;
+      --chat--border-radius: 8px;
+      --chat--message--border-radius: 10px;
+      --chat--window--width: 100%;
+      --chat--window--height: 100%;
+    }
+
+    #n8n-chat {
+      width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    /* Forza full screen */
+    #n8n-chat .n8n-chat { width: 100% !important; height: 100% !important; }
+    #n8n-chat .chat-window { width: 100% !important; height: 100% !important; border-radius: 0 !important; box-shadow: none !important; }
+    #n8n-chat .chat-inputs { background: #1a2f48 !important; border-top: 1px solid rgba(74,144,217,.2) !important; }
+    #n8n-chat .chat-header { background: #1a2f48 !important; border-bottom: 1px solid rgba(74,144,217,.2) !important; display: none !important; }
+    #n8n-chat .chat-toggle { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="avatar">🏛️</div>
+      <div>
+        <div class="brand-name">Chiara</div>
+        <div class="brand-sub">Palazzo Blue Arroyo · Agente IA</div>
+      </div>
+    </div>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      Online
+    </div>
+  </header>
+
+  <!-- SESSION BAR -->
+  <div class="session-bar" id="session-bar">
+    <button class="sess-btn active" data-id="smm"     onclick="cambiaSessione(this)">📱 Social Media</button>
+    <button class="sess-btn"        data-id="ops"     onclick="cambiaSessione(this)">🏠 Operazioni</button>
+    <button class="sess-btn"        data-id="mktg"    onclick="cambiaSessione(this)">📣 Campagne</button>
+    <button class="sess-btn"        data-id="report"  onclick="cambiaSessione(this)">📊 Report</button>
+    <button class="sess-btn"        data-id="crescita" onclick="cambiaSessione(this)">📈 Crescita</button>
+  </div>
+
+  <!-- CHAT -->
+  <div class="chat-wrap">
+    <div id="n8n-chat"></div>
+  </div>
+
+  <!-- n8n Chat Widget Script -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    const WEBHOOK_ID = '38a72c53-b7db-4a2a-8989-b9743effd3e4';
+    const BASE_URL   = 'https://aherreras.app.n8n.cloud';
+
+    let sessionId = 'palazzo_blue_arroyo_smm';
+
+    function avviaChat(sessId) {
+      // Rimuovi istanza precedente
+      const el = document.getElementById('n8n-chat');
+      el.innerHTML = '';
+
+      createChat({
+        webhookUrl: `${BASE_URL}/webhook/${WEBHOOK_ID}/chat`,
+        target: '#n8n-chat',
+        mode: 'fullscreen',
+        showWelcomeScreen: false,
+        metadata: { sessionId: sessId },
+        initialMessages: [
+          'Ciao! Sono **Chiara**, l\'agente IA di Palazzo Blue Arroyo 🏛️',
+          'Posso aiutarti con contenuti social, campagne Meta, report KPI, comunicazioni operative e diagnosi di crescita aziendale.\n\n_Cosa creiamo oggi?_'
+        ],
+        i18n: {
+          en: {
+            title: 'Chiara — Palazzo Blue Arroyo',
+            subtitle: 'Agente IA · Property Management · Firenze',
+            inputPlaceholder: 'Scrivi a Chiara...',
+            getStarted: 'Inizia la conversazione',
+            error: 'Errore di connessione. Riprova.',
+            footer: ''
+          }
+        }
+      });
+    }
+
+    // Avvia con SMM di default
+    avviaChat(sessionId);
+
+    // Esponi funzione globale per il session switcher
+    window.avviaChat = avviaChat;
+  </script>
+
+  <script>
+    function cambiaSessione(btn) {
+      // Aggiorna bottoni
+      document.querySelectorAll('.sess-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const id = btn.dataset.id;
+      const sessId = `palazzo_blue_arroyo_${id}`;
+
+      // Ricrea la chat con nuova sessione
+      if (window.avviaChat) window.avviaChat(sessId);
+    }
+  </script>
+
+</body>
+</html>

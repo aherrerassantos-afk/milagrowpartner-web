@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Privata — Palazzo Blue Arroyo | Mila Grow Partner</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="index.css">
+  
+  <style>
+    /* ─── Base ─── */
+    body { background-color: #fafaf8; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+    /* ─── Login Overlay ─── */
+    #login-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #0d0d0d;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fafaf8;
+    }
+    .login-box {
+      background: #1a1a1a;
+      padding: 50px 40px;
+      border: 1px solid #2a2a2a;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* Accento Blu per Palazzo Blue Arroyo */
+    .login-box .brand-accent { color: #4a90d9; }
+    
+    .login-box h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+      color: #fafaf8;
+    }
+    .login-box .brand-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #4a90d9;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .login-box p {
+      color: #666;
+      font-size: 0.82rem;
+      margin-bottom: 30px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #0d0d0d;
+      border: 1px solid #333;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+    }
+    .login-box input:focus { outline: none; border-color: #4a90d9; }
+    .login-box button {
+      width: 100%;
+      padding: 15px;
+      background: #4a90d9;
+      color: #0d0d0d;
+      border: none;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: inherit;
+      font-size: 0.8rem;
+    }
+    .login-box button:hover { opacity: 0.88; }
+    #login-error { color: #ff5252; font-size: 0.78rem; margin-top: 14px; display: none; }
+
+    /* ─── Contenuto Protetto ─── */
+    #protected-content { display: none; }
+
+    /* ─── Header ─── */
+    .private-top-bar {
+      background: #0d0d0d;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1f1f1f;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .top-bar-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .top-bar-logo .eyebrow {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #4a90d9;
+    }
+    .top-bar-logo .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #fafaf8;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .agent-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 7px 14px;
+      border-radius: 20px;
+    }
+    .agent-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4a90d9 0%, #2c5f8a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #fff;
+      font-weight: 600;
+    }
+    .agent-pill span {
+      font-size: 0.78rem;
+      color: #ccc;
+    }
+    .agent-pill strong {
+      color: #4a90d9;
+      font-size: 0.82rem;
+    }
+    .online-dot {
+      width: 7px;
+      height: 7px;
+      background: #4caf50;
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .logout-btn {
+      background: transparent;
+      color: #555;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .logout-btn:hover { color: #fafaf8; }
+
+    /* ─── Hero Section ─── */
+    .private-hero {
+      background: linear-gradient(135deg, #0d1f33 0%, #0d0d0d 60%);
+      padding: 70px 5% 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .private-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(74, 144, 217, 0.12) 0%, transparent 70%);
+    }
+    .private-hero-inner { position: relative; }
+    .private-hero .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #4a90d9;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .private-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: #fafaf8;
+      margin: 0 0 12px;
+      line-height: 1.1;
+    }
+    .private-hero h1 em { font-style: italic; color: #4a90d9; }
+    .private-hero .sub {
+      color: #666;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── Dashboard ─── */
+    .dashboard-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 50px 5% 80px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid #E0DFDB;
+      overflow: hidden;
+    }
+    .sidebar-card + .sidebar-card { margin-top: 16px; }
+    .sidebar-card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #E0DFDB;
+      background: #f9f9f7;
+    }
+    .sidebar-card-header h3 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin: 0;
+    }
+
+    /* Info Chiara */
+    .agent-info-card {
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .agent-big-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4a90d9 0%, #2c5f8a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 14px;
+      box-shadow: 0 4px 20px rgba(74, 144, 217, 0.25);
+    }
+    .agent-info-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      margin: 0 0 4px;
+      color: #0d0d0d;
+    }
+    .agent-info-card .agent-role {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #4a90d9;
+      margin-bottom: 14px;
+    }
+    .agent-info-card .agent-desc {
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.6;
+    }
+    .agent-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #f0f0ee;
+      font-size: 0.72rem;
+      color: #666;
+    }
+
+    /* Sezione Proprietà */
+    .property-list { padding: 8px 0; }
+    .property-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: background 0.15s;
+      border-bottom: 1px solid #f5f5f3;
+    }
+    .property-item:last-child { border-bottom: none; }
+    .property-item:hover { background: #f9f9f7; }
+    .property-item.active { background: #f0f6ff; }
+    .property-icon {
+      width: 34px;
+      height: 34px;
+      background: #f0f6ff;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .property-item.active .property-icon { background: #4a90d9; }
+    .property-info .prop-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #0d0d0d;
+    }
+    .property-info .prop-type {
+      font-size: 0.72rem;
+      color: #aaa;
+    }
+
+    /* ─── Chat Workspace ─── */
+    .chat-workspace {
+      background: #fff;
+      border: 1px solid #E0DFDB;
+      display: flex;
+      flex-direction: column;
+      min-height: 700px;
+    }
+    .workspace-header {
+      padding: 22px 28px;
+      border-bottom: 1px solid #E0DFDB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fafaf8;
+    }
+    .workspace-header-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #0d0d0d;
+      margin: 0 0 4px;
+    }
+    .workspace-header-left .context-tag {
+      font-size: 0.7rem;
+      color: #aaa;
+      letter-spacing: 0.08em;
+    }
+    .status-badge {
+      background: #e8f0fc;
+      color: #2c5f8a;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .workspace-desc {
+      padding: 16px 28px;
+      font-size: 0.82rem;
+      color: #999;
+      border-bottom: 1px solid #f5f5f3;
+      background: #fafafa;
+      line-height: 1.6;
+    }
+    #n8n-chat-container {
+      flex: 1;
+      padding: 0;
+    }
+    #n8n-chat-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+      border: none;
+      display: block;
+    }
+
+    /* ─── Brand DNA Panel ─── */
+    .dna-card { cursor: default; }
+    .dna-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      cursor: pointer;
+      border-bottom: 1px solid #E0DFDB;
+      background: #f9f9f7;
+      user-select: none;
+    }
+    .dna-toggle h3 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #4a90d9;
+      margin: 0;
+    }
+    .dna-toggle .chevron {
+      font-size: 0.7rem;
+      color: #aaa;
+      transition: transform 0.2s;
+    }
+    .dna-toggle.open .chevron { transform: rotate(180deg); }
+    .dna-body {
+      padding: 16px 20px;
+      display: none;
+      font-size: 0.78rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .dna-body.open { display: block; }
+    .dna-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 1px solid #f5f5f3;
+    }
+    .dna-row:last-child { border-bottom: none; }
+    .dna-row .k { color: #999; font-size: 0.72rem; }
+    .dna-row .v { font-weight: 500; color: #0d0d0d; font-size: 0.78rem; text-align: right; }
+    .dna-row .v a { color: #4a90d9; text-decoration: none; }
+
+    /* ─── KPI Strip ─── */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #E0DFDB;
+      border: 1px solid #E0DFDB;
+      margin-bottom: 0;
+    }
+    .kpi-item {
+      background: #fff;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .kpi-item .kpi-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #0d0d0d;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .kpi-item .kpi-label {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+    }
+
+    /* ─── Quick Prompt Chips ─── */
+    .quick-prompts {
+      padding: 16px 28px;
+      border-bottom: 1px solid #f0f0ee;
+      background: #fafaf8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .quick-prompts .qp-label {
+      font-size: 0.68rem;
+      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      width: 100%;
+      margin-bottom: 2px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f0f6ff;
+      border: 1px solid #d0e4f7;
+      color: #2c5f8a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .chip:hover {
+      background: #4a90d9;
+      color: #fff;
+      border-color: #4a90d9;
+    }
+
+    /* ─── Context Banner ─── */
+    .context-banner {
+      background: linear-gradient(90deg, #0d1f33, #0d2a44);
+      border-left: 3px solid #4a90d9;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .context-banner .cb-icon { font-size: 1rem; }
+    .context-banner .cb-text { font-size: 0.78rem; color: #8ab4d4; line-height: 1.5; }
+    .context-banner .cb-text strong { color: #4a90d9; }
+
+    /* ─── Tab Switcher ─── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #E0DFDB;
+      background: #fafaf8;
+      padding: 0 28px;
+    }
+    .tab-btn {
+      padding: 14px 20px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #aaa;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .tab-btn:hover { color: #4a90d9; }
+    .tab-btn.active {
+      color: #4a90d9;
+      border-bottom-color: #4a90d9;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ─── Crescita Panel ─── */
+    .crescita-panel {
+      padding: 28px;
+      overflow-y: auto;
+      max-height: 820px;
+    }
+    .crescita-section {
+      margin-bottom: 32px;
+    }
+    .crescita-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #0d0d0d;
+      margin: 0 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .crescita-section .cs-sub {
+      font-size: 0.72rem;
+      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .regola-box {
+      background: linear-gradient(90deg, #1a0a0a, #1f0d0d);
+      border-left: 3px solid #ff5252;
+      padding: 14px 18px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 20px;
+    }
+    .regola-box p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: #ffaaaa;
+      line-height: 1.6;
+    }
+    .regola-box strong { color: #ff5252; }
+    /* Diagnosi form */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .diag-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .diag-field label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+    }
+    .diag-field input {
+      padding: 10px 12px;
+      border: 1px solid #E0DFDB;
+      background: #fafaf8;
+      font-family: inherit;
+      font-size: 0.85rem;
+      color: #0d0d0d;
+      transition: border-color 0.2s;
+    }
+    .diag-field input:focus { outline: none; border-color: #4a90d9; }
+    /* Margine meter */
+    .margine-result {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #E0DFDB;
+      background: #fff;
+    }
+    .margine-result .mr-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #aaa;
+      margin-bottom: 8px;
+    }
+    .margine-result .mr-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .margine-result .mr-bar {
+      height: 6px;
+      background: #f0f0ee;
+      border-radius: 3px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .margine-result .mr-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease, background 0.3s;
+    }
+    .mr-status { font-size: 0.78rem; margin-top: 6px; font-weight: 500; }
+    /* KPI Table */
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    .kpi-table th {
+      background: #f5f5f3;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      border-bottom: 2px solid #E0DFDB;
+    }
+    .kpi-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f5f5f3;
+      vertical-align: middle;
+    }
+    .kpi-table tr:last-child td { border-bottom: none; }
+    .kpi-table .kpi-name { font-weight: 500; color: #0d0d0d; }
+    .kpi-table .kpi-def { font-size: 0.72rem; color: #aaa; display: block; }
+    .kpi-table input[type=number] {
+      width: 70px;
+      padding: 6px 8px;
+      border: 1px solid #E0DFDB;
+      font-family: inherit;
+      font-size: 0.8rem;
+      text-align: center;
+      background: #fafaf8;
+    }
+    .kpi-table input[type=number]:focus { outline: none; border-color: #4a90d9; }
+    .target-badge {
+      background: #e8f0fc;
+      color: #2c5f8a;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    /* TODO list */
+    .todo-list { list-style: none; padding: 0; margin: 0; }
+    .todo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f5f5f3;
+    }
+    .todo-item:last-child { border-bottom: none; }
+    .todo-check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #E0DFDB;
+      border-radius: 3px;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .todo-check.done {
+      background: #4a90d9;
+      border-color: #4a90d9;
+      color: #fff;
+      font-size: 0.75rem;
+    }
+    .todo-content .todo-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #0d0d0d;
+      margin-bottom: 3px;
+    }
+    .todo-content .todo-desc {
+      font-size: 0.75rem;
+      color: #999;
+      line-height: 1.5;
+    }
+    .todo-time {
+      font-size: 0.68rem;
+      color: #4a90d9;
+      background: #e8f0fc;
+      padding: 2px 7px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      margin-left: auto;
+      height: fit-content;
+      margin-top: 2px;
+    }
+    /* Angoli marketing */
+    .angoli-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .angolo-card {
+      padding: 14px;
+      border: 1px solid #E0DFDB;
+      background: #fff;
+    }
+    .angolo-card .ac-emoji { font-size: 1.2rem; margin-bottom: 6px; }
+    .angolo-card .ac-name {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: #4a90d9;
+      margin-bottom: 4px;
+    }
+    .angolo-card .ac-template {
+      font-size: 0.72rem;
+      color: #888;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .calc-btn {
+      padding: 12px 24px;
+      background: #4a90d9;
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 14px;
+    }
+    .calc-btn:hover { opacity: 0.88; }
+    .send-crescita-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: #0d1f33;
+      color: #4a90d9;
+      border: 1px solid #4a90d9;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .send-crescita-btn:hover { background: #4a90d9; color: #fff; }
+
+    /* ─── Footer ─── */
+    .private-footer {
+      background: #0d0d0d;
+      color: #444;
+      text-align: center;
+      padding: 28px;
+      font-size: 0.75rem;
+      border-top: 1px solid #1a1a1a;
+    }
+    .private-footer span { color: #4a90d9; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .dashboard-container { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .private-top-bar { padding: 14px 20px; }
+      .kpi-strip { grid-template-columns: repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       SCHERMATA DI LOGIN
+  ═══════════════════════════════════════════ -->
+  <div id="login-overlay">
+    <div class="login-box">
+      <span class="brand-tag">Mila Grow Partner · Hub Privato</span>
+      <h2>Palazzo <span class="brand-accent">Blue Arroyo</span></h2>
+      <p>Accesso riservato — Team Mila & Gestori Palazzo</p>
+      <input type="password" id="password-input" placeholder="Inserisci Password" onkeypress="if(event.key === 'Enter') checkPassword()">
+      <button onclick="checkPassword()">Accedi →</button>
+      <p id="login-error">Password non corretta. Riprova.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CONTENUTO PROTETTO
+  ═══════════════════════════════════════════ -->
+  <div id="protected-content">
+
+    <!-- Top Bar -->
+    <div class="private-top-bar">
+      <a href="index.html" class="top-bar-logo">
+        <span class="eyebrow">Mila Grow Partner</span>
+        <span class="name">MILA</span>
+      </a>
+      <div class="top-bar-right">
+        <div class="agent-pill">
+          <div class="agent-avatar">C</div>
+          <div>
+            <strong>Chiara</strong>
+            <span> · Agente IA</span>
+          </div>
+          <div class="online-dot"></div>
+        </div>
+        <button class="logout-btn" onclick="logout()">Esci</button>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="private-hero">
+      <div class="private-hero-inner">
+        <span class="label">Centro Operativo IA · Palazzo Blue Arroyo</span>
+        <h1>Parla con <em>Chiara</em></h1>
+        <p class="sub">Agente IA dedicata a Palazzo Blue Arroyo · Powered by Mila Grow Partner</p>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <section class="dashboard-container">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <!-- Card Chiara -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-header"><h3>Il tuo Agente</h3></div>
+          <div class="agent-info-card">
+            <div class="agent-big-avatar">🏛️</div>
+            <h4>Chiara</h4>
+            <div class="agent-role">SMM & Operations Agent</div>
+            <p class="agent-desc">
+              Chiara è l'intelligenza artificiale dedicata esclusivamente a Palazzo Blue Arroyo.
+              Gestisce social, comunicazione, campagne e strategie operative.
+            </p>
+            <div class="agent-status-row">
+              <div class="online-dot"></div>
+              <span>Online · Workflow n8n attivo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proprietà / Sezioni -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-header"><h3>Sezione Attiva</h3></div>
+          <div class="property-list">
+            <div class="property-item active" onclick="selectSection('smm', this)">
+              <div class="property-icon">📱</div>
+              <div class="property-info">
+                <div class="prop-name">Social Media</div>
+                <div class="prop-type">Instagram · Facebook</div>
+              </div>
+            </div>
+            <div class="property-item" onclick="selectSection('ops', this)">
+              <div class="property-icon">🏨</div>
+              <div class="property-info">
+                <div class="prop-name">Operazioni</div>
+                <div class="prop-type">Check-in · Ospiti</div>
+              </div>
+            </div>
+            <div class="property-item" onclick="selectSection('mktg', this)">
+              <div class="property-icon">📣</div>
+              <div class="property-info">
+                <div class="prop-name">Campagne</div>
+                <div class="prop-type">Meta Ads · Google</div>
+              </div>
+            </div>
+            <div class="property-item" onclick="selectSection('report', this)">
+              <div class="property-icon">📊</div>
+              <div class="property-info">
+                <div class="prop-name">Report</div>
+                <div class="prop-type">KPIs · Analytics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI snapshot -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-header"><h3>📊 Numeri Chiave</h3></div>
+          <div class="kpi-strip">
+            <div class="kpi-item">
+              <div class="kpi-val">145</div>
+              <div class="kpi-label">Strutture</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-val">€82</div>
+              <div class="kpi-label">Prezzo medio</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-val">29%</div>
+              <div class="kpi-label">EBITDA</div>
+            </div>
+          </div>
+          <div class="kpi-strip" style="margin-top:1px;">
+            <div class="kpi-item">
+              <div class="kpi-val">90</div>
+              <div class="kpi-label">Post/mese</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-val">3h</div>
+              <div class="kpi-label">SLA checkout</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-val">1/die</div>
+              <div class="kpi-label">Video IG</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand DNA collapsible -->
+        <div class="sidebar-card dna-card">
+          <div class="dna-toggle" id="dna-toggle" onclick="toggleDNA()">
+            <h3>🧬 Brand DNA</h3>
+            <span class="chevron" id="dna-chevron">▼</span>
+          </div>
+          <div class="dna-body" id="dna-body">
+            <div class="dna-row"><span class="k">Brand</span><span class="v">Palazzo Blue Arroyo</span></div>
+            <div class="dna-row"><span class="k">Sito</span><span class="v"><a href="https://palazzobluearroyo.it" target="_blank">palazzobluearroyo.it</a></span></div>
+            <div class="dna-row"><span class="k">Instagram</span><span class="v"><a href="https://instagram.com/palazzo_bluearroyo" target="_blank">@palazzo_bluearroyo</a></span></div>
+            <div class="dna-row"><span class="k">Sede</span><span class="v">Firenze, Italia</span></div>
+            <div class="dna-row"><span class="k">Settore</span><span class="v">Property Mgmt · Airbnb</span></div>
+            <div class="dna-row"><span class="k">Target</span><span class="v">PM 35–55 anni</span></div>
+            <div class="dna-row"><span class="k">Palette</span><span class="v" style="color:#4a90d9">■ Blu · Bianco · Nero</span></div>
+            <div class="dna-row"><span class="k">Tono</span><span class="v">Prof. · Caldo · Autentico</span></div>
+            <div class="dna-row"><span class="k">Meta Ads</span><span class="v">1348377917008116</span></div>
+            <div class="dna-row"><span class="k">Commerciale</span><span class="v">sales@bluearroyo.it</span></div>
+            <div class="dna-row"><span class="k">WhatsApp</span><span class="v">+39 351 038 0392</span></div>
+            <div style="margin-top:12px; padding-top:10px; border-top:1px solid #f0f0ee; font-size:0.72rem; color:#bbb; line-height:1.6;">
+              Pillars: Brand Authority · Educazione · Connessione Umana · Social Proof · Brand Identity
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Chat Workspace -->
+      <main class="chat-workspace">
+        <div class="workspace-header">
+          <div class="workspace-header-left">
+            <h2>Palazzo Blue Arroyo</h2>
+            <div class="context-tag" id="context-label">Sezione: Social Media · Instagram · Facebook</div>
+          </div>
+          <div class="status-badge">
+            <span style="width:7px; height:7px; background:#4caf50; border-radius:50%; display:inline-block;"></span>
+            CHIARA ONLINE
+          </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="tab-bar">
+          <button class="tab-btn active" id="tab-chat-btn" onclick="switchTab('chat')">💬 Chat</button>
+          <button class="tab-btn" id="tab-crescita-btn" onclick="switchTab('crescita')">📈 Crescita</button>
+        </div>
+
+        <!-- TAB: CHAT -->
+        <div id="tab-chat" class="tab-panel active">
+          <!-- Context Banner -->
+          <div class="context-banner">
+            <span class="cb-icon">🧠</span>
+            <span class="cb-text">
+              Chiara conosce il brand DNA completo di <strong>Palazzo Blue Arroyo</strong>:
+              145 strutture a Firenze · €82/turnover · 90 contenuti/mese · Target PM 35–55 anni · Tono professionale e caldo.
+            </span>
+          </div>
+
+          <!-- Quick Prompts -->
+          <div class="quick-prompts">
+            <span class="qp-label">💬 Chiedi subito a Chiara:</span>
+            <button class="chip" onclick="sendPrompt('Crea una caption per Instagram di Palazzo Blue Arroyo sul tema \"affidabilità e puntualità\" — pillar Brand Authority. 3 versioni, tono professionale e caldo, con hashtag.')">
+              📱 Caption IG
+            </button>
+            <button class="chip" onclick="sendPrompt('Scrivi uno script per un Reel di 20 secondi — Behind the Scenes — del team di pulizie di Blue Arroyo in azione. Hook nei primi 3 secondi, CTA finale.')">
+              🎬 Script Reel BTS
+            </button>
+            <button class="chip" onclick="sendPrompt('Crea un piano editoriale per la prossima settimana per @palazzo_bluearroyo. 7 post (1/giorno): Lun=Storytelling, Mar=BTS, Mer=Educativo, Gio=Social Proof, Ven=Storytelling, Sab=Lifestyle, Dom=Recap.')">
+              📅 Piano settimana
+            </button>
+            <button class="chip" onclick="sendPrompt('Scrivi 3 varianti di risposta DM per un Property Manager interessato. Tono caldo e autorevole. Includi: 145 strutture attive, SLA 3h, foto-report ogni stanza.')">
+              💬 Risposta DM
+            </button>
+            <button class="chip" onclick="sendPrompt('Proponi 3 idee di contenuto innovative per @palazzo_bluearroyo per aumentare l\'engagement rate sopra il 4%.')">
+              📊 Idee engagement
+            </button>
+            <button class="chip" onclick="sendPrompt('Crea il copy per una Meta Ad di Palazzo Blue Arroyo per Property Manager di Firenze con 2-10 Airbnb. Headline + testo + CTA.')">
+              📣 Meta Ad copy
+            </button>
+          </div>
+
+          <div class="workspace-desc" id="workspace-desc">
+            Questa chat è connessa direttamente a <strong>Chiara</strong>, l'agente IA esclusiva di Palazzo Blue Arroyo.
+            Tutte le istruzioni verranno processate dal workflow n8n dedicato.
+          </div>
+
+          <div id="n8n-chat-container">
+            <iframe id="chiara-iframe"
+              src="https://aherreras.app.n8n.cloud/webhook/chiara-chat?sessionId=palazzo_blue_arroyo_smm"
+              allow="clipboard-write">
+            </iframe>
+          </div>
+        </div><!-- /tab-chat -->
+
+        <!-- TAB: CRESCITA -->
+        <div id="tab-crescita" class="tab-panel">
+          <div class="crescita-panel">
+
+            <!-- Regola #0 -->
+            <div class="regola-box">
+              <p>🔴 <strong>REGOLA #0 — NON NEGOZIABILE:</strong> Il costo operativo NON può mai superare il 50% dell'incasso.
+              Margine lordo minimo: <strong>≥50%</strong>. Se è inferiore, è la priorità assoluta #1 prima di qualsiasi marketing.</p>
+            </div>
+
+            <!-- FASE 1: DIAGNOSI -->
+            <div class="crescita-section">
+              <h3>🔍 Fase 1 — Diagnosi Aziendale</h3>
+              <span class="cs-sub">Inserisci i dati reali per calcolare il margine lordo</span>
+              <div class="diag-grid">
+                <div class="diag-field">
+                  <label>Fatturato mensile (€)</label>
+                  <input type="number" id="d-fatturato" placeholder="es. 15000" oninput="calcolaMargine()">
+                </div>
+                <div class="diag-field">
+                  <label>Costi operativi mensili (€)</label>
+                  <input type="number" id="d-costi" placeholder="es. 7000" oninput="calcolaMargine()">
+                </div>
+                <div class="diag-field">
+                  <label>Prezzo vendita servizio (€)</label>
+                  <input type="number" id="d-prezzo" placeholder="es. 82">
+                </div>
+                <div class="diag-field">
+                  <label>N. clienti attivi</label>
+                  <input type="number" id="d-clienti" placeholder="es. 145">
+                </div>
+                <div class="diag-field">
+                  <label>Lead mensili</label>
+                  <input type="number" id="d-lead" placeholder="es. 30">
+                </div>
+                <div class="diag-field">
+                  <label>Vita media cliente (mesi)</label>
+                  <input type="number" id="d-vita" placeholder="es. 8">
+                </div>
+              </div>
+              <div class="margine-result" id="margine-result" style="display:none;">
+                <div class="mr-label">Margine Lordo</div>
+                <div class="mr-val" id="mr-val">--%</div>
+                <div class="mr-status" id="mr-status"></div>
+                <div class="mr-bar"><div class="mr-fill" id="mr-fill"></div></div>
+                <div style="margin-top:14px; font-size:0.78rem; color:#555;" id="mr-detail"></div>
+              </div>
+              <button class="calc-btn" onclick="inviadiagnosi()">&#128172; Invia Diagnosi a Chiara</button>
+            </div>
+
+            <!-- FASE 4: KPI TARGET -->
+            <div class="crescita-section">
+              <h3>🎯 Fase 4 — KPI Obiettivi</h3>
+              <span class="cs-sub">Inserisci i valori attuali — Chiara calcolerà i target</span>
+              <table class="kpi-table">
+                <thead>
+                  <tr>
+                    <th>KPI</th>
+                    <th>Valore Attuale</th>
+                    <th>Target 30gg</th>
+                    <th>Target 90gg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="kpi-name"># Lead / mese</span><span class="kpi-def">Contatti qualificati che entrano</span></td>
+                    <td><input type="number" id="k-lead" placeholder="0"></td>
+                    <td><span class="target-badge" id="kt-lead30">+20%</span></td>
+                    <td><span class="target-badge" id="kt-lead90">+50%</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="kpi-name">Tasa de Agenda %</span><span class="kpi-def">Lead che prenotano una call</span></td>
+                    <td><input type="number" id="k-agenda" placeholder="0"></td>
+                    <td><span class="target-badge">&gt;60%</span></td>
+                    <td><span class="target-badge">&gt;70%</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="kpi-name">Tasa de Show-up %</span><span class="kpi-def">Si presentano alla call</span></td>
+                    <td><input type="number" id="k-showup" placeholder="0"></td>
+                    <td><span class="target-badge">&gt;75%</span></td>
+                    <td><span class="target-badge">&gt;85%</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="kpi-name">Tasa de Cierre %</span><span class="kpi-def">Acquistano dopo la call</span></td>
+                    <td><input type="number" id="k-cierre" placeholder="0"></td>
+                    <td><span class="target-badge">&gt;25%</span></td>
+                    <td><span class="target-badge">&gt;35%</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="kpi-name">AOV / Ticket (€)</span><span class="kpi-def">Valore medio per cliente</span></td>
+                    <td><input type="number" id="k-aov" placeholder="0"></td>
+                    <td><span class="target-badge">+10%</span></td>
+                    <td><span class="target-badge">+25%</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="kpi-name">Tasa Cancelación %</span><span class="kpi-def">Cancellano dopo acquisto</span></td>
+                    <td><input type="number" id="k-cancel" placeholder="0"></td>
+                    <td><span class="target-badge">&lt;15%</span></td>
+                    <td><span class="target-badge">&lt;8%</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="calc-btn" onclick="inviaKPI()">&#128172; Invia KPI a Chiara per la Progettazione</button>
+            </div>
+
+            <!-- FASE 6: TO-DO DAY 1 -->
+            <div class="crescita-section">
+              <h3>⚡ Fase 6 — To-Do Day 1</h3>
+              <span class="cs-sub">Azioni immediate — eseguibili oggi</span>
+              <ul class="todo-list">
+                <li class="todo-item">
+                  <div class="todo-check" onclick="toggleTodo(this)"></div>
+                  <div class="todo-content">
+                    <div class="todo-title">Calcola il margine lordo reale di questo mese</div>
+                    <div class="todo-desc">(Fatturato − Costi) / Fatturato × 100 — deve essere ≥50%</div>
+                  </div>
+                  <span class="todo-time">30 min</span>
+                </li>
+                <li class="todo-item">
+                  <div class="todo-check" onclick="toggleTodo(this)"></div>
+                  <div class="todo-content">
+                    <div class="todo-title">Conta le call e calcola la tasa de cierre</div>
+                    <div class="todo-desc">Vendite / Call fatte × 100 — se &lt;25%, lo script va rivisto</div>
+                  </div>
+                  <span class="todo-time">20 min</span>
+                </li>
+                <li class="todo-item">
+                  <div class="todo-check" onclick="toggleTodo(this)"></div>
+                  <div class="todo-content">
+                    <div class="todo-title">Scrivi il pain #1 del cliente ideale con le sue esatte parole</div>
+                    <div class="todo-desc">Sarà la base di tutti i contenuti marketing</div>
+                  </div>
+                  <span class="todo-time">15 min</span>
+                </li>
+                <li class="todo-item">
+                  <div class="todo-check" onclick="toggleTodo(this)"></div>
+                  <div class="todo-content">
+                    <div class="todo-title">Pubblica 1 contenuto sul pain #1 (Reel o carosello IG)</div>
+                    <div class="todo-desc">Hook: “Il problema che nessuno ti dice su [settore]...”</div>
+                  </div>
+                  <span class="todo-time">1h</span>
+                </li>
+                <li class="todo-item">
+                  <div class="todo-check" onclick="toggleTodo(this)"></div>
+                  <div class="todo-content">
+                    <div class="todo-title">Invia 5 follow-up ai lead che non hanno risposto</div>
+                    <div class="todo-desc">“Ciao [nome], come sta andando con [problema]?”</div>
+                  </div>
+                  <span class="todo-time">2h</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- FASE 7: ANGOLI MARKETING -->
+            <div class="crescita-section">
+              <h3>🎯 Fase 7 — Angoli Vincitori</h3>
+              <span class="cs-sub">Ruota questi angoli nei contenuti settimanali</span>
+              <div class="angoli-grid">
+                <div class="angolo-card">
+                  <div class="ac-emoji">🔴</div>
+                  <div class="ac-name">Pain</div>
+                  <div class="ac-template">“Stai perdendo [X] perché non sai che...”</div>
+                </div>
+                <div class="angolo-card">
+                  <div class="ac-emoji">🟢</div>
+                  <div class="ac-name">Gain</div>
+                  <div class="ac-template">“Come ho portato [cliente] da [A] a [B] in [tempo]”</div>
+                </div>
+                <div class="angolo-card">
+                  <div class="ac-emoji">🟡</div>
+                  <div class="ac-name">Fear</div>
+                  <div class="ac-template">“Il tuo competitor lo sta già facendo. Tu no.”</div>
+                </div>
+                <div class="angolo-card">
+                  <div class="ac-emoji">🔵</div>
+                  <div class="ac-name">Curiosity</div>
+                  <div class="ac-template">“Il motivo per cui [settore] non ti dice la verità su [X]”</div>
+                </div>
+                <div class="angolo-card">
+                  <div class="ac-emoji">⚪</div>
+                  <div class="ac-name">Proof</div>
+                  <div class="ac-template">“Da [situazione] a [risultato] — la storia di [cliente]”</div>
+                </div>
+                <div class="angolo-card">
+                  <div class="ac-emoji">🟣</div>
+                  <div class="ac-name">Education</div>
+                  <div class="ac-template">“3 cose che ogni [target] dovrebbe sapere su [topic]”</div>
+                </div>
+              </div>
+              <button class="send-crescita-btn" onclick="inviaAngolo()">&#128172; Chiedi a Chiara il piano editoriale con questi angoli</button>
+            </div>
+
+          </div>
+        </div><!-- /tab-crescita -->
+
+      </main>
+
+    </section>
+
+    <!-- Footer -->
+    <div class="private-footer">
+      © 2026 <span>Mila Collective</span> · Area Privata Sicura · Agente <span>Chiara</span> · Palazzo Blue Arroyo
+    </div>
+
+  </div><!-- /protected-content -->
+
+  <script>
+    // ─── LOGIN ───
+    const CORRECT_PWD = 'Mila2026!';
+
+    function checkPassword() {
+      const pwd = document.getElementById('password-input').value;
+      if (pwd === CORRECT_PWD) {
+        sessionStorage.setItem('palazzo_auth', 'true');
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('protected-content').style.display = 'block';
+      } else {
+        const err = document.getElementById('login-error');
+        err.style.display = 'block';
+        document.getElementById('password-input').style.borderColor = '#ff5252';
+        setTimeout(() => { err.style.display = 'none'; }, 3000);
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem('palazzo_auth');
+      window.location.reload();
+    }
+
+    // Auto-login se già autenticato
+    if (sessionStorage.getItem('palazzo_auth') === 'true') {
+      document.getElementById('login-overlay').style.display = 'none';
+      document.getElementById('protected-content').style.display = 'block';
+    }
+
+    // ─── SELEZIONE SEZIONE SIDEBAR ───
+    // I sessionId cambiano in base alla sezione attiva, così n8n può differenziare il contesto
+    const SECTION_CONFIG = {
+      smm: {
+        label:   'Sezione: Social Media · Instagram · Facebook',
+        desc:    'Parla con <strong>Chiara</strong> per creare post, caption, reel e strategie per i social di Palazzo Blue Arroyo.',
+        session: 'palazzo_blue_arroyo_smm'
+      },
+      ops: {
+        label:   'Sezione: Operazioni · Check-in · Ospiti',
+        desc:    'Chiedi a <strong>Chiara</strong> supporto operativo: messaggi ospiti, procedure di check-in, comunicazioni interne.',
+        session: 'palazzo_blue_arroyo_ops'
+      },
+      mktg: {
+        label:   'Sezione: Campagne · Meta Ads · Google',
+        desc:    'Lavora con <strong>Chiara</strong> su campagne pubblicitarie, target audience e ottimizzazione budget Meta Ads.',
+        session: 'palazzo_blue_arroyo_mktg'
+      },
+      report: {
+        label:   'Sezione: Report · KPIs · Analytics',
+        desc:    'Chiedi a <strong>Chiara</strong> report di performance, analisi dei dati e consigli strategici basati sui risultati.',
+        session: 'palazzo_blue_arroyo_report'
+      }
+    };
+
+    function selectSection(sectionId, el) {
+      // Aggiorna stile sidebar
+      document.querySelectorAll('.property-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+
+      const cfg = SECTION_CONFIG[sectionId];
+      
+      // Aggiorna header e descrizione
+      document.getElementById('context-label').textContent = cfg.label;
+      document.getElementById('workspace-desc').innerHTML =
+        cfg.desc + ' Tutte le istruzioni verranno elaborate dal workflow n8n dedicato.';
+
+      // Ricarica iframe con sessionId corretto per il contesto
+      const iframe = document.getElementById('chiara-iframe');
+      iframe.src = `https://aherreras.app.n8n.cloud/webhook/chiara-chat?sessionId=${cfg.session}`;
+    }
+
+    // ─── BRAND DNA PANEL TOGGLE ───
+    function toggleDNA() {
+      const body    = document.getElementById('dna-body');
+      const toggle  = document.getElementById('dna-toggle');
+      const chevron = document.getElementById('dna-chevron');
+      const isOpen  = body.classList.contains('open');
+      body.classList.toggle('open', !isOpen);
+      toggle.classList.toggle('open', !isOpen);
+    }
+
+    // ─── QUICK PROMPT CHIPS ───
+    // Invia un prompt precompilato all'iframe n8n tramite postMessage
+    function sendPrompt(text) {
+      const iframe = document.getElementById('chiara-iframe');
+      // Metodo 1: postMessage verso n8n
+      try {
+        iframe.contentWindow.postMessage({ type: 'userMessage', text: text }, '*');
+      } catch(e) {}
+      // Metodo 2: salva in sessionStorage come prompt in attesa
+      // (il workflow n8n lo leggerà al primo messaggio dell'utente)
+      sessionStorage.setItem('chiara_pending_prompt', text);
+      // Metodo 3: copia negli appunti + feedback visivo
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          // Feedback toast
+          const toast = document.createElement('div');
+          toast.textContent = '✓ Prompt copiato — incollalo nella chat!';
+          toast.style.cssText = `
+            position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+            background:#4a90d9; color:#fff; padding:12px 24px; border-radius:4px;
+            font-size:0.8rem; font-family:inherit; z-index:9999; letter-spacing:0.05em;
+            animation: fadeInUp 0.3s ease;
+          `;
+          document.body.appendChild(toast);
+          setTimeout(() => toast.remove(), 3000);
+        });
+      }
+    }
+
+    // ─── TAB SWITCHER ───
+    function switchTab(tab) {
+      ['chat','crescita'].forEach(t => {
+        document.getElementById('tab-'+t).classList.toggle('active', t === tab);
+        document.getElementById('tab-'+t+'-btn').classList.toggle('active', t === tab);
+      });
+    }
+
+    // ─── CALCOLO MARGINE LORDO (Fase 1) ───
+    function calcolaMargine() {
+      const fatturato = parseFloat(document.getElementById('d-fatturato').value) || 0;
+      const costi     = parseFloat(document.getElementById('d-costi').value)     || 0;
+      if (fatturato <= 0) return;
+
+      const margine = ((fatturato - costi) / fatturato * 100).toFixed(1);
+      const result  = document.getElementById('margine-result');
+      result.style.display = 'block';
+      document.getElementById('mr-val').textContent = margine + '%';
+
+      const fill   = document.getElementById('mr-fill');
+      const status = document.getElementById('mr-status');
+      const detail = document.getElementById('mr-detail');
+
+      fill.style.width = Math.min(margine, 100) + '%';
+
+      if (margine < 30) {
+        fill.style.background = '#ff5252';
+        status.style.color    = '#ff5252';
+        status.textContent    = '🔴 CRITICO — priorità assoluta. Fix immediato prima di qualsiasi altra azione.';
+      } else if (margine < 50) {
+        fill.style.background = '#ff9800';
+        status.style.color    = '#ff9800';
+        status.textContent    = '🟡 ATTENZIONE — sotto il target del 50%. Da correggere entro 30 giorni.';
+      } else if (margine < 65) {
+        fill.style.background = '#4caf50';
+        status.style.color    = '#4caf50';
+        status.textContent    = '🟢 BUONO — sopra il target. Ottimizzabile verso il 65%+.';
+      } else {
+        fill.style.background = '#4a90d9';
+        status.style.color    = '#4a90d9';
+        status.textContent    = '✅ OTTIMO — margine eccellente. Focus totale sulla crescita.';
+      }
+
+      const guadagnoCliente = (fatturato - costi);
+      const aov = parseFloat(document.getElementById('d-prezzo').value) || 0;
+      const clienti = parseFloat(document.getElementById('d-clienti').value) || 0;
+      const vita = parseFloat(document.getElementById('d-vita').value) || 0;
+      const ltv = aov > 0 && vita > 0 ? (aov * vita).toFixed(0) : '—';
+
+      detail.innerHTML = `
+        <strong>Guadagno mensile netto:</strong> €${guadagnoCliente.toLocaleString('it')} &nbsp;·&nbsp;
+        <strong>Per ogni €1 incassato:</strong> €${(margine/100).toFixed(2)} di margine
+        ${clienti > 0 ? ` &nbsp;·&nbsp; <strong>Clienti:</strong> ${clienti}` : ''}
+        ${ltv !== '—' ? ` &nbsp;·&nbsp; <strong>LTV stimato:</strong> €${parseFloat(ltv).toLocaleString('it')}` : ''}
+      `;
+    }
+
+    // ─── INVIA DIAGNOSI A CHIARA ───
+    function inviadiagnosi() {
+      const f = parseFloat(document.getElementById('d-fatturato').value) || 0;
+      const c = parseFloat(document.getElementById('d-costi').value)     || 0;
+      const p = parseFloat(document.getElementById('d-prezzo').value)    || 0;
+      const cl = parseFloat(document.getElementById('d-clienti').value)  || 0;
+      const l = parseFloat(document.getElementById('d-lead').value)      || 0;
+      const v = parseFloat(document.getElementById('d-vita').value)      || 0;
+      const m = f > 0 ? ((f-c)/f*100).toFixed(1) : '?';
+
+      const prompt = `DIAGNOSI AZIENDALE — Palazzo Blue Arroyo
+
+DATI FINANZIARI:
+- Fatturato mensile: €${f.toLocaleString('it')}
+- Costi operativi mensili: €${c.toLocaleString('it')} (${f>0?((c/f)*100).toFixed(1):0}% del fatturato)
+- Margine lordo: ${m}% ${parseFloat(m)<50?'⚠️ SOTTO TARGET':'✅ OK'}
+- Prezzo servizio: €${p}
+- Clienti attivi: ${cl}
+- Lead mensili: ${l}
+- Vita media cliente: ${v} mesi
+
+Sulla base di questi dati, esegui il Protocollo Crescita Mila:
+1. Valuta il margine e segnala se è sotto il 50% (priorità assoluta)
+2. Proponi come ottimizzare i costi o aumentare il prezzo
+3. Calcola l'LTV attuale e quello ottimale
+4. Identifica le 3 azioni immediate per migliorare il margine o la crescita
+5. Proponi la struttura dell'offerta ottimale (base + upsell + premium)`;
+
+      sendPrompt(prompt);
+      switchTab('chat');
+    }
+
+    // ─── INVIA KPI A CHIARA ───
+    function inviaKPI() {
+      const lead   = document.getElementById('k-lead').value   || '?';
+      const agenda = document.getElementById('k-agenda').value || '?';
+      const showup = document.getElementById('k-showup').value || '?';
+      const cierre = document.getElementById('k-cierre').value || '?';
+      const aov    = document.getElementById('k-aov').value    || '?';
+      const cancel = document.getElementById('k-cancel').value || '?';
+
+      const prompt = `KPI ATTUALI — Palazzo Blue Arroyo
+
+PIPELINE COMMERCIALE:
+- Lead mensili: ${lead}
+- Tasa de Agenda: ${agenda}% (target: >60% in 30gg, >70% in 90gg)
+- Tasa de Show-up: ${showup}% (target: >75% in 30gg, >85% in 90gg)
+- Tasa de Cierre: ${cierre}% (target: >25% in 30gg, >35% in 90gg)
+- AOV / Ticket: €${aov} (target: +10% in 30gg, +25% in 90gg)
+- Tasa de Cancelación: ${cancel}% (target: <15% in 30gg, <8% in 90gg)
+
+Sulla base di questi KPI:
+1. Identifica il KPI con il gap più grande rispetto al target
+2. Proponi la Proiezione Finanziaria 90 giorni (tabella Mese 1/2/3)
+3. Disegna il Funnel di Vendita ottimale per Palazzo Blue Arroyo
+4. Proponi 3 azioni concrete per migliorare il KPI più critico
+5. Suggerisci nuovi servizi o bundle per aumentare l'AOV`;
+
+      sendPrompt(prompt);
+      switchTab('chat');
+    }
+
+    // ─── INVIA ANGOLO MARKETING A CHIARA ───
+    function inviaAngolo() {
+      const prompt = `STRATEGIA MARKETING — Palazzo Blue Arroyo
+
+Crea un piano editoriale completo per questa settimana usando la rotazione degli Angoli Vincitori:
+
+ANGOLI DA USARE (in rotazione):
+- PAIN: "Stai perdendo [X] perché non sai che..."
+- GAIN: "Come ho portato [cliente] da [A] a [B] in [tempo]"
+- FEAR: "Il tuo competitor lo sta già facendo. Tu no."
+- CURIOSITY: "Il motivo per cui [settore] non ti dice la verità su [X]"
+- PROOF: "Da [situazione] a [risultato] — la storia di [cliente]"
+- EDUCATION: "3 cose che ogni [target] dovrebbe sapere su [topic]"
+
+PIANO SETTIMANA:
+- Lunedì: Reel (angolo PAIN o GAIN)
+- Martedì: BTS (dietro le quinte)
+- Mercoledì: Carosello (EDUCATION o PROOF)
+- Giovedì: Story engagement
+- Venerdì: Reel (CURIOSITY o FEAR)
+- Sabato: Lifestyle
+- Domenica: Recap
+
+Per ogni giorno, fornisci:
+1. Angolo scelto e motivazione
+2. Hook (prime 3 parole del video/post)
+3. Script o outline completo del contenuto
+4. Caption per IG con hashtag
+Adatta tutto al brand di Palazzo Blue Arroyo: property management, pulizie Airbnb, Firenze, target PM 35-55 anni.`;
+
+      sendPrompt(prompt);
+      switchTab('chat');
+    }
+
+    // ─── TODO LIST DAY 1 ───
+    function toggleTodo(el) {
+      const isDone = el.classList.toggle('done');
+      el.textContent = isDone ? '✓' : '';
+      el.nextElementSibling.querySelector('.todo-title').style.textDecoration = isDone ? 'line-through' : 'none';
+      el.nextElementSibling.querySelector('.todo-title').style.color = isDone ? '#bbb' : '#0d0d0d';
+    }
+  </script>
+
+  <style>
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateX(-50%) translateY(10px); }
+      to   { opacity:1; transform: translateX(-50%) translateY(0); }
+    }
+  </style>
+
+</body>
+</html>

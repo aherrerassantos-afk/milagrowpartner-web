@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.milagrowpartner.com/sitemap.xml
+
+# Block irrelevant paths
+Disallow: /private/
+Disallow: /*.json$

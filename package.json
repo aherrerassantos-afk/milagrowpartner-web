@@ -1,0 +1,13 @@
+{
+  "name": "mila-grow-partner",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist_assets && mkdir -p dist_assets && cp -r *.html *.css *.js *.jpg *.mp3 blog servizi dist_assets/",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.1.0"
+  }
+}

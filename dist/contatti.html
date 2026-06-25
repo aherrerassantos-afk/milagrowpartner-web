@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contattaci | Mila Grow Partner — Consulenza Gratuita Firenze</title>
+  <meta name="description" content="Contatta Mila Grow Partner per una consulenza gratuita. Compila il modulo e il nostro team ti risponderà entro 48 ore con una strategia personalizzata.">
+  <link rel="canonical" href="https://www.milagrowpartner.com/contatti/">
+  <meta property="og:title" content="Contattaci | Mila Grow Partner — Consulenza Gratuita Firenze">
+  <meta property="og:description" content="Contatta Mila Grow Partner per una consulenza gratuita. Ti risponderemo entro 48 ore con una strategia personalizzata.">
+  <meta property="og:url" content="https://www.milagrowpartner.com/contatti/">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="inner.css">
+  <style>
+    /* Contact page specific styles */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 80px;
+      padding: 80px 48px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .contact-form-wrap h2 {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      margin-bottom: 32px;
+      color: var(--black);
+    }
+    .contact-form-wrap h2 em {
+      font-style: italic;
+      color: var(--gray-500);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--cream);
+      border: 1px solid var(--gray-300);
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      color: var(--black);
+      font-weight: 300;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    .btn-submit {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 18px 52px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.25s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--gold); }
+    .form-note {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 12px;
+      font-weight: 300;
+    }
+    .contact-sidebar {}
+    .contact-info-card {
+      background: var(--cream);
+      border: 1px solid var(--gray-300);
+      padding: 36px 28px;
+      margin-bottom: 24px;
+    }
+    .contact-info-title {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gray-300);
+    }
+    .contact-info-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .contact-info-item strong {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 600;
+    }
+    .contact-info-item span {
+      font-size: 14px;
+      color: var(--gray-700);
+      font-weight: 300;
+    }
+    .contact-info-item a {
+      font-size: 14px;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .why-work-section {
+      background: var(--black);
+      padding: 80px 48px;
+    }
+    .why-work-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .why-work-inner .label { color: var(--gold-light); font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:20px; }
+    .why-work-inner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+    .why-work-inner h2 em { font-style: italic; color: var(--gold-light); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .why-cell {
+      background: var(--black);
+      padding: 36px 28px;
+      transition: background 0.2s;
+    }
+    .why-cell:hover { background: rgba(184,150,90,0.08); }
+    .why-cell-num {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .why-cell h3 {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .why-cell p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .faq-section {
+      padding: 80px 48px;
+      background: var(--cream);
+    }
+    .faq-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-label { font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:20px; }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 48px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-300);
+      padding: 28px 0;
+    }
+    .faq-item:first-of-type { border-top: 1px solid var(--gray-300); }
+    .faq-question {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 15px;
+      color: var(--gray-700);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .location-placeholder {
+      background: var(--gray-300);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .location-placeholder span {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+    @media (max-width: 1024px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .contact-layout, .why-work-section, .faq-section { padding: 48px 24px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contattaci — Mila Grow Partner",
+    "url": "https://www.milagrowpartner.com/contatti/",
+    "description": "Contatta Mila Grow Partner per una consulenza gratuita. Il team ti risponderà entro 48 ore.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mila Grow Partner",
+      "email": "info@milagrowpartner.com",
+      "url": "https://www.milagrowpartner.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Firenze",
+        "addressRegion": "Toscana",
+        "addressCountry": "IT"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>Il tuo Growth Partner dal 2026 — consulenza gratuita disponibile</span>
+    <a href="index.html">→ Torna alla Home</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="servizi/index.html">Services</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+    <a href="index.html" class="logo-center">
+      <span class="logo-eyebrow">GROWTH PARTNER</span>
+      <span class="logo-name">MILA</span>
+      <span class="logo-tagline">COLLECTIVE · FIRENZE · ITALIA</span>
+    </a>
+    <nav class="nav-right">
+      <a href="chi-siamo.html">Chi Siamo</a>
+      <a href="index.html#values">Vision</a>
+      <a href="contatti.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="inner-hero">
+    <div class="inner-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Contatti</span>
+      </nav>
+      <h1>Inizia la tua <em>Crescita</em> con Noi</h1>
+      <p class="inner-hero-sub">Compila il modulo e ti ricontatteremo entro 48 ore con una prima analisi della tua situazione e le opportunità di crescita che vediamo per il tuo brand.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT LAYOUT -->
+  <div class="contact-layout">
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <h2>Parliamo del Tuo <em>Progetto</em></h2>
+      <form id="contatti-form" novalidate>
+
+        <!-- FormSubmit.co hidden config (AJAX endpoint) -->
+        <input type="hidden" name="_subject" value="🌱 Nuovo Lead — Mila Grow Partner">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_replyto" id="replyto-field" value="">
+        <input type="hidden" name="_autoresponse" value="Ciao! Grazie per averci contattato. Abbiamo ricevuto la tua richiesta e il nostro team ti risponderà entro 48 ore con una strategia personalizzata per il tuo brand. A presto, il team di Mila Grow Partner — hello@bluearroyo.it">
+        <input type="text" name="_honey" style="display:none">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="form-group">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono *</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+39 333 1234567" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="tua@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="azienda">Nome Azienda (facoltativo)</label>
+          <input type="text" id="azienda" name="azienda" placeholder="Nome della tua azienda">
+        </div>
+        <div class="form-group">
+          <label for="servizio">Servizio di Interesse</label>
+          <select id="servizio" name="servizio">
+            <option value="" disabled selected>Seleziona un servizio</option>
+            <option>Branding &amp; Rebranding</option>
+            <option>SEO &amp; Posizionamento Organico</option>
+            <option>Social Media Management</option>
+            <option>Campagne di Marketing</option>
+            <option>Funnel di Vendita</option>
+            <option>Email Marketing</option>
+            <option>Strategia di Marketing Completa</option>
+            <option>Altro / Non so ancora</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="messaggio">Raccontaci il tuo Progetto *</label>
+          <textarea id="messaggio" name="messaggio" placeholder="Descrivi la tua azienda, i tuoi obiettivi e cosa vorresti ottenere con Mila Grow Partner..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">Invia il Messaggio →</button>
+        <p class="form-note">* Campi obbligatori. Risponderemo entro 48 ore lavorative.</p>
+      </form>
+
+    </div>
+
+    <!-- SIDEBAR INFO -->
+    <div class="contact-sidebar">
+      <div class="contact-info-card">
+        <p class="contact-info-title">Informazioni di Contatto</p>
+        <div class="contact-info-item">
+          <strong>Email</strong>
+          <a href="mailto:info@milagrowpartner.com">info@milagrowpartner.com</a>
+        </div>
+        <div class="contact-info-item">
+          <strong>Sede</strong>
+          <span>Firenze, Toscana</span>
+          <span>Italia</span>
+        </div>
+        <div class="contact-info-item">
+          <strong>Orari di Risposta</strong>
+          <span>Lun–Ven: 9:00–18:00</span>
+          <span>Risposta entro 48h</span>
+        </div>
+        <div class="contact-info-item">
+          <strong>Consulenza</strong>
+          <span>Gratuita · 45 minuti</span>
+          <span>Online o in sede a Firenze</span>
+        </div>
+      </div>
+
+      <div class="contact-info-card">
+        <p class="contact-info-title">Cosa succede dopo?</p>
+        <div class="process-steps" style="margin:0;">
+          <div class="process-step" style="padding:16px 0;">
+            <div class="process-step-num" style="font-size:28px;">1</div>
+            <div class="process-step-content">
+              <h4 style="font-size:12px;">Ricevi il nostro messaggio</h4>
+              <p style="font-size:13px;">Ti confermiamo la ricezione entro poche ore e fissiamo una call.</p>
+            </div>
+          </div>
+          <div class="process-step" style="padding:16px 0;">
+            <div class="process-step-num" style="font-size:28px;">2</div>
+            <div class="process-step-content">
+              <h4 style="font-size:12px;">Consulenza gratuita</h4>
+              <p style="font-size:13px;">45 minuti per analizzare la tua situazione e identificare le opportunità.</p>
+            </div>
+          </div>
+          <div class="process-step" style="padding:16px 0;">
+            <div class="process-step-num" style="font-size:28px;">3</div>
+            <div class="process-step-content">
+              <h4 style="font-size:12px;">Proposta personalizzata</h4>
+              <p style="font-size:13px;">Ricevi una strategia su misura con obiettivi, azioni e investimento chiaro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-placeholder">
+        <span>📍 Firenze, Italia</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WHY WORK WITH US -->
+  <section class="why-work-section">
+    <div class="why-work-inner">
+      <span class="label">PERCHÉ SCEGLIERCI</span>
+      <h2>3 Motivi per Cui le PMI <em>Scelgono Mila</em></h2>
+      <div class="why-grid">
+        <div class="why-cell">
+          <div class="why-cell-num">01</div>
+          <h3>Growth Partner, Non Fornitore</h3>
+          <p>Non eseguiamo task — costruiamo sistemi di crescita. Ci immergiamo nel tuo business, condividiamo i tuoi obiettivi e lavoriamo come se l'azienda fosse nostra. La differenza si vede nei risultati.</p>
+        </div>
+        <div class="why-cell">
+          <div class="why-cell-num">02</div>
+          <h3>Struttura Completa &amp; Integrata</h3>
+          <p>SEO, social, email, funnel, branding: tutte le competenze sotto un unico tetto strategico. Nessuna frammentazione, nessuna incoerenza tra canali. Una direzione, un piano, un team.</p>
+        </div>
+        <div class="why-cell">
+          <div class="why-cell-num">03</div>
+          <h3>Risultati Misurabili &amp; Trasparenti</h3>
+          <p>Ogni euro investito con noi è tracciato. Report mensili chiari, KPI definiti prima di iniziare, ottimizzazione continua basata sui dati. Sai sempre cosa sta succedendo e perché.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <span class="faq-label">DOMANDE FREQUENTI</span>
+      <h2 class="faq-title">Hai dubbi? Abbiamo le risposte.</h2>
+
+      <div class="faq-item">
+        <p class="faq-question">Quanto costa lavorare con Mila Grow Partner?</p>
+        <p class="faq-answer">I nostri servizi partono da €500/mese per soluzioni focalizzate (es. solo SEO locale o solo social media management) e crescono in base alla complessità del progetto e al numero di canali gestiti. Durante la consulenza gratuita analizziamo insieme gli obiettivi e definiamo un investimento proporzionale al potenziale ritorno. Nessun pacchetto preconfezionato: costruiamo la soluzione giusta per il tuo budget.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Quanto tempo ci vuole per vedere i primi risultati?</p>
+        <p class="faq-answer">Dipende dai canali e dagli obiettivi. Le campagne a pagamento (Google Ads, Meta Ads) possono portare traffico e lead nelle prime settimane. Il SEO organico e il social media management organico richiedono 3-6 mesi per produrre risultati significativi e stabili. Il branding è un investimento a lungo termine che si consolida in 12-18 mesi. Definiamo sempre aspettative realistiche e trasparenti fin dall'inizio.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Con quali settori lavorate?</p>
+        <p class="faq-answer">Lavoriamo con PMI italiane di settori diversi: professionisti e studi (legali, commercialisti, architetti), aziende manifatturiere e artigianali, retail e e-commerce, servizi B2B e consulenza, food &amp; hospitality, design e moda. La nostra metodologia si adatta a qualsiasi settore perché parte sempre dall'analisi specifica della realtà del cliente, non da template preimpostati.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-modal" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(13,13,13,0.85);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(6px);
+  ">
+    <div style="
+      background:#fafaf8;
+      max-width:520px;
+      width:90%;
+      padding:56px 48px;
+      text-align:center;
+      position:relative;
+      animation: modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    ">
+      <div style="
+        width:64px;height:64px;
+        border-radius:50%;
+        background:#0d0d0d;
+        display:flex;align-items:center;justify-content:center;
+        margin:0 auto 28px;
+        font-size:28px;
+      ">✓</div>
+      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#b8965a;font-weight:600;margin-bottom:12px;">MESSAGGIO INVIATO</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:#0d0d0d;margin-bottom:16px;line-height:1.2;">Grazie! Ti <em style='font-style:italic;color:#8c897f;'>ricontattiamo</em> presto.</h2>
+      <p style="font-size:15px;color:#8c897f;line-height:1.75;font-weight:300;margin-bottom:36px;">Abbiamo ricevuto la tua richiesta. Il nostro team la analizzerà e ti risponderà entro <strong style='color:#0d0d0d;'>48 ore lavorative</strong> con una proposta personalizzata.</p>
+      <a href="index.html" style="
+        display:inline-block;
+        background:#0d0d0d;
+        color:#fafaf8;
+        text-decoration:none;
+        font-size:11px;
+        letter-spacing:0.15em;
+        text-transform:uppercase;
+        padding:16px 40px;
+        font-weight:500;
+        transition:background 0.2s;
+      ">Torna alla Home →</a>
+      <button onclick="document.getElementById('success-modal').style.display='none'" style="
+        display:block;
+        margin:16px auto 0;
+        background:none;
+        border:none;
+        font-size:12px;
+        color:#8c897f;
+        cursor:pointer;
+        letter-spacing:0.08em;
+      ">Chiudi</button>
+    </div>
+  </div>
+
+  <style>
+    @keyframes modalIn {
+      from { opacity:0; transform:scale(0.85) translateY(20px); }
+      to   { opacity:1; transform:scale(1) translateY(0); }
+    }
+  </style>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-name-sm">MILA GROW PARTNER</span>
+        <span class="footer-tagline">Growth Partner · Firenze, Italia</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="servizi/index.html">Services</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="chi-siamo.html">Chi Siamo</a>
+        <a href="contatti.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mila Grow Partner. Tutti i diritti riservati.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script>
+    const form      = document.getElementById('contatti-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const nome     = form.querySelector('[name="nome"]').value.trim();
+      const email    = form.querySelector('[name="email"]').value.trim();
+      const telefono = form.querySelector('[name="telefono"]').value.trim();
+      const messaggio= form.querySelector('[name="messaggio"]').value.trim();
+
+      // Validazione
+      if (!nome || !email || !telefono || !messaggio) {
+        ['nome','email','telefono','messaggio'].forEach(n => {
+          const el = form.querySelector('[name="' + n + '"]');
+          if (el && !el.value.trim()) {
+            el.style.borderColor = '#c0392b';
+            el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+          }
+        });
+        return;
+      }
+
+      // 1. Mostra SUBITO il popup
+      showSuccessModal(nome, email);
+
+      // 2. Imposta _replyto con l'email del cliente per l'auto-risposta
+      document.getElementById('replyto-field').value = email;
+
+      // 3. Invia in background a FormSubmit.co (AJAX — nessun redirect)
+      const formData = new FormData(form);
+      fetch('https://formsubmit.co/ajax/hello@bluearroyo.it', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) console.log('Email inviata');
+        else res.json().then(d => console.warn('FormSubmit:', d));
+      }).catch(err => console.warn('Errore:', err));
+
+      form.reset();
+    });
+
+    function showSuccessModal(nome, email) {
+      const old = document.getElementById('mila-success-modal');
+      if (old) old.remove();
+
+      const modal = document.createElement('div');
+      modal.id = 'mila-success-modal';
+      modal.style.cssText = 'position:fixed;inset:0;background:rgba(13,13,13,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);opacity:0;transition:opacity 0.35s ease;';
+
+      modal.innerHTML = `
+        <div id="mila-modal-box" style="background:#fafaf8;max-width:520px;width:90%;padding:60px 48px;text-align:center;transform:scale(0.92) translateY(20px);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+          <div style="width:72px;height:72px;border-radius:50%;background:#0d0d0d;color:#b8965a;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-size:34px;">✓</div>
+          <p style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#b8965a;font-weight:600;margin-bottom:12px;">MESSAGGIO RICEVUTO</p>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#0d0d0d;line-height:1.2;margin-bottom:16px;">
+            Grazie <em style="font-style:italic;color:#8c897f;">${nome}</em>!
+          </h2>
+          <p style="font-size:14px;color:#8c897f;line-height:1.85;font-weight:300;margin-bottom:12px;">
+            Abbiamo ricevuto la tua richiesta.<br>Ti ricontatteremo entro <strong style="color:#0d0d0d;">48 ore</strong>.
+          </p>
+          <p style="font-size:13px;color:#aaa;font-weight:300;margin-bottom:36px;">
+            📧 Conferma inviata a <strong style="color:#0d0d0d;">${email}</strong>
+          </p>
+          <button onclick="document.getElementById('mila-success-modal').remove()" style="background:#0d0d0d;color:#fafaf8;border:none;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:16px 40px;cursor:pointer;font-family:inherit;font-weight:500;">
+            Torna al Sito
+          </button>
+        </div>
+      `;
+
+      document.body.appendChild(modal);
+
+      requestAnimationFrame(() => {
+        modal.style.opacity = '1';
+        document.getElementById('mila-modal-box').style.transform = 'scale(1) translateY(0)';
+      });
+
+      // Chiudi cliccando fuori
+      modal.addEventListener('click', e => {
+        if (e.target === modal) modal.remove();
+      });
+    }
+  </script>
+</body>
+</html>

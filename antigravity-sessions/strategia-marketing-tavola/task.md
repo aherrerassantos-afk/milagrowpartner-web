@@ -1,0 +1,7 @@
+- [x] Preparare lo script Python per manipolare il file JSON del workflow.
+- [x] Iniettare la riga `tavola_dei_santi` nel nodo "2 Brand Context".
+- [x] Creare il nodo Switch di deviazione dopo "Brand Trovato".
+- [x] Iniettare il nodo "3.x SMM Tavola dei Santi" (AI Agent) con il prompt personalizzato.
+- [x] Generare il file JSON aggiornato (v2.8.0).
+- [x] Caricare il nuovo workflow su n8n tramite chiamata API.
+- [ ] Scrivere il Walkthrough e fornire l'Embed Code per la chat su Milagrow.

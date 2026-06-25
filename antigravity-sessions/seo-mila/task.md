@@ -1,0 +1,8 @@
+- [x] Implement redesign of `src/app/page.tsx`
+  - [x] Add Language switcher & MMega style Header
+  - [x] Add Full-width Hero with `hero-villa.jpg` background
+  - [x] Add Overlapping Search Bar with top features banner
+  - [x] Add "Emozioni uniche da provare" experiences section
+  - [x] Add responsive grid of experience cards using copied assets
+  - [x] Add elegant Cookies Consent banner
+- [x] Run production build locally to verify types and React rendering
