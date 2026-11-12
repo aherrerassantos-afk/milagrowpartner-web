@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <!-- Google Analytics 4 — Blue Arroyo Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXTBCDYTEK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JXTBCDYTEK');
+    document.addEventListener('submit', function(e){
+      gtag('event', 'generate_lead', {
+        'event_category': 'Form',
+        'event_label': 'Mila 300 Lead Form',
+        'value': 300
+      });
+    });
+  </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <!-- ═══════════════════════════════════════════
-       PRIMARY SEO META TAGS
-  ═══════════════════════════════════════════ -->
-  <title>Mila Grow Partner | Agenzia di Marketing & Branding — Firenze, Italia</title>
-  <meta name="description" content="Mila Grow Partner è la tua agenzia di marketing a Firenze. Creiamo strategie di crescita, campagne di marketing, funnel di vendita e posizionamento organico su Google per far crescere il tuo brand.">
-  <meta name="keywords" content="agenzia marketing firenze, grow partner italia, branding firenze, social media management, posizionamento google, SEO firenze, campagne marketing, funnel di vendita, email marketing, digital marketing italia, mila grow partner">
-  <meta name="author" content="Mila Grow Partner">
+  <!-- PRIMARY SEO META TAGS -->
+  <title>Mila Grow Partner · Developer & Partner Tecnologico a 300 € / Mese</title>
+  <meta name="description" content="Il tuo sviluppatore e partner tecnologico dedicato a quota fissa mensile di 300,00 € / mese. Possiamo fare qualsiasi cosa vuoi: siti, web app, automazioni, AI, bot e integrazioni API.">
+  <meta name="keywords" content="developer in abbonamento, partner tecnologico firenze, sviluppo software quota fissa, 300 euro al mese, siti web, automazioni n8n, bot ai, crm, blue arroyo">
+  <meta name="author" content="Mila Grow Partner — Blue Arroyo S.r.l.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="language" content="Italian">
   <meta name="geo.region" content="IT-FI">
@@ -19,35 +32,24 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://www.milagrowpartner.com/">
 
-  <!-- Sitemap reference -->
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-
-  <!-- ═══════════════════════════════════════════
-       OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
-  ═══════════════════════════════════════════ -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.milagrowpartner.com/">
-  <meta property="og:title" content="Mila Grow Partner | Agenzia Marketing & Branding Firenze">
-  <meta property="og:description" content="Strategia di crescita completa: campagne marketing, funnel di vendita, branding e posizionamento organico. Il tuo partner di fiducia a Firenze.">
+  <meta property="og:title" content="Mila Grow Partner · Developer Tecnologico Flat a 300 € / Mese">
+  <meta property="og:description" content="Possiamo fare qualsiasi cosa vuoi. Siti, web app, automazioni e AI a soli 300 € / mese. Parla direttamente con il titolare.">
   <meta property="og:image" content="https://www.milagrowpartner.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Mila Grow Partner — Agenzia Marketing Firenze">
   <meta property="og:site_name" content="Mila Grow Partner">
   <meta property="og:locale" content="it_IT">
 
-  <!-- ═══════════════════════════════════════════
-       TWITTER / X CARDS
-  ═══════════════════════════════════════════ -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@milagrowpartner">
-  <meta name="twitter:title" content="Mila Grow Partner | Growth Agency — Firenze, Italia">
-  <meta name="twitter:description" content="Campagne di marketing, branding e posizionamento organico su Google. Il tuo Growth Partner basato a Firenze.">
+  <meta name="twitter:title" content="Mila Grow Partner · Developer Tecnologico a 300 € / Mese">
+  <meta name="twitter:description" content="Possiamo fare qualsiasi cosa vuoi. Nessun preventivo a ore. 300 € / mese flat.">
   <meta name="twitter:image" content="https://www.milagrowpartner.com/og-image.jpg">
 
-  <!-- ═══════════════════════════════════════════
-       STRUCTURED DATA — JSON-LD (Google Rich Results)
-  ═══════════════════════════════════════════ -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -56,478 +58,594 @@
         "@type": "Organization",
         "@id": "https://www.milagrowpartner.com/#organization",
         "name": "Mila Grow Partner",
-        "alternateName": "Mila Collective",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Blue Arroyo S.r.l."
+        },
         "url": "https://www.milagrowpartner.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.milagrowpartner.com/og-image.jpg",
-          "width": 300,
-          "height": 300
-        },
-        "description": "Mila Grow Partner è un'agenzia di marketing e branding a Firenze specializzata in growth strategy, campagne di marketing digitale, branding e posizionamento organico su Google.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Firenze",
-          "addressRegion": "Toscana",
-          "addressCountry": "IT"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "info@milagrowpartner.com",
-          "contactType": "customer service",
-          "availableLanguage": ["Italian", "Spanish", "English"]
-        },
-        "sameAs": [
-          "https://www.instagram.com/milagrowpartner",
-          "https://www.linkedin.com/company/milagrowpartner"
-        ],
-        "foundingDate": "2026",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Italy"
-        },
-        "serviceType": [
-          "Marketing Agency",
-          "Branding Agency",
-          "Digital Marketing",
-          "SEO Services",
-          "Social Media Management"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.milagrowpartner.com/#website",
-        "url": "https://www.milagrowpartner.com",
-        "name": "Mila Grow Partner",
-        "description": "Agenzia di Marketing e Branding a Firenze",
-        "publisher": {
-          "@id": "https://www.milagrowpartner.com/#organization"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://www.milagrowpartner.com/?s={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.milagrowpartner.com/#webpage",
-        "url": "https://www.milagrowpartner.com/",
-        "name": "Mila Grow Partner | Agenzia Marketing & Branding Firenze",
-        "description": "Strategia di crescita completa per il tuo brand. Campagne marketing, funnel di vendita, branding e SEO a Firenze.",
-        "isPartOf": {"@id": "https://www.milagrowpartner.com/#website"},
-        "about": {"@id": "https://www.milagrowpartner.com/#organization"},
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.milagrowpartner.com/"
-            }
-          ]
-        }
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.milagrowpartner.com/#localbusiness",
-        "name": "Mila Grow Partner",
-        "image": "https://www.milagrowpartner.com/og-image.jpg",
-        "url": "https://www.milagrowpartner.com",
+        "telephone": "+39 351 038 0392",
         "email": "info@milagrowpartner.com",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Via Matteo Palmieri 20/R",
           "addressLocality": "Firenze",
-          "addressRegion": "Toscana",
-          "postalCode": "50100",
+          "addressRegion": "FI",
+          "postalCode": "50122",
           "addressCountry": "IT"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 43.7696,
-          "longitude": 11.2558
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }
-        ],
-        "priceRange": "€€",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Servizi di Marketing",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Campagne di Marketing Digitale",
-                "description": "Campagne multicanale su Google, Meta, LinkedIn e TikTok per massimizzare la crescita del tuo brand."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Branding & Rebranding",
-                "description": "Costruzione di identità visive coerenti e sistemi di brand che catturano i valori aziendali."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "SEO e Posizionamento Organico",
-                "description": "Ottimizzazione per i motori di ricerca per posizionare il tuo brand in prima pagina su Google."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Social Media Management",
-                "description": "Gestione professionale dei canali social con contenuti su misura e community building."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Funnel di Vendita",
-                "description": "Sequenze di vendita strategiche — email, outreach e automazioni — per convertire contatti in clienti."
-              }
-            }
-          ]
         }
       },
       {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Cos'è Mila Grow Partner?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Mila Grow Partner è un'agenzia di marketing e branding con sede a Firenze, Italia. Siamo un growth partner strategico che aiuta i brand a crescere attraverso campagne di marketing, branding, SEO e funnel di vendita."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quali servizi offre Mila Grow Partner?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Offriamo servizi di branding e rebranding, social media management, digital marketing, SEO e posizionamento organico, email marketing, performance marketing (Google, Meta, TikTok), content marketing e consulenza strategica."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Come posso contattare Mila Grow Partner?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Puoi contattarci tramite il modulo di contatto sul nostro sito web o scrivendo a info@milagrowpartner.com. Il nostro team risponde entro 48 ore con una strategia personalizzata."
-            }
-          }
-        ]
+        "@type": "Product",
+        "name": "Developer Tecnologico & Partner in Abbonamento Flat",
+        "description": "Sviluppo software illimitato, siti web, web application, bot AI e automazioni per 300,00 € al mese.",
+        "offers": {
+          "@type": "Offer",
+          "price": "300.00",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.milagrowpartner.com/#abbonamento"
+        }
       }
     ]
   }
   </script>
 
-  <!-- ═══════════════════════════════════════════
-       PERFORMANCE & FONTS
-  ═══════════════════════════════════════════ -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="index.css">
-
-  <!-- Theme color for mobile browsers -->
-  <meta name="theme-color" content="#0d0d0d">
-  <meta name="msapplication-TileColor" content="#0d0d0d">
+  <meta name="theme-color" content="#090b10">
 </head>
-<body>
+<body class="mila-page">
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <span>Il tuo Growth Partner dal 2026 — consulenza gratuita disponibile</span>
-    <a href="#contact">→ Inizia Ora</a>
-  </div>
+  <!-- Top Announcement Bar -->
+  <aside class="mila-topbar" aria-label="Notifiche e Linea Diretta">
+    <div class="mila-container mila-topbar-inner">
+      <span class="mila-topbar-pill">OFFERTA FLAT 2026</span>
+      <p class="mila-topbar-text">
+        <strong>Partner Tecnologico a Quota Fissa: 300,00 € / mese.</strong>
+        Linea diretta titolare:
+        <a href="tel:+393510380392" class="mila-topbar-link">+39 351 038 0392</a>
+      </p>
+    </div>
+  </aside>
 
-  <!-- Header -->
-  <header class="header" id="top">
-    <nav class="nav-left">
-      <a href="#home">Home</a>
-      <a href="servizi/index.html">Services</a>
-      <a href="blog/index.html">Blog</a>
-    </nav>
+  <!-- Header Primario -->
+  <header class="mila-header" id="header">
+    <div class="mila-container mila-header-inner">
+      <a href="#hero" class="mila-brand" aria-label="Mila Grow Partner Home">
+        <span class="mila-brand-title">MILA</span>
+        <span class="mila-brand-sub">GROW PARTNER · TECH</span>
+      </a>
 
-    <a href="#top" class="logo-center">
-      <span class="logo-eyebrow">GROWTH PARTNER</span>
-      <span class="logo-name">MILA</span>
-      <span class="logo-tagline">COLLECTIVE · FIRENZE · ITALIA</span>
-    </a>
+      <!-- Hamburger mobile (minimo 48x48px per accessibilità touch) -->
+      <button class="mila-burger" id="burgerBtn" aria-label="Apri o chiudi menu di navigazione" aria-expanded="false">
+        <span class="mila-burger-bar"></span>
+        <span class="mila-burger-bar"></span>
+        <span class="mila-burger-bar"></span>
+      </button>
 
-    <nav class="nav-right">
-      <a href="chi-siamo.html">Chi Siamo</a>
-      <a href="contatti.html">Contatti</a>
-      <a href="area-privata.html" style="color:#b8965a; font-weight:600;">Area Privata</a>
-      <div class="lang-switcher">
-        <a href="#" class="lang-btn lang-active" onclick="setLang('it'); return false;">IT</a>
-        <span class="lang-div">|</span>
-        <a href="#" class="lang-btn" onclick="setLang('en'); return false;">EN</a>
-      </div>
-    </nav>
+      <!-- Navigazione Desktop e Mobile Drawer -->
+      <nav class="mila-nav" id="mainNav" aria-label="Menu Principale">
+        <a href="#formula" class="mila-nav-link">Come Funziona</a>
+        <a href="#servizi" class="mila-nav-link">Cosa Possiamo Fare</a>
+        <a href="#confronto" class="mila-nav-link">Comparativa</a>
+        <a href="#faq" class="mila-nav-link">FAQ</a>
+        <a href="tel:+393510380392" class="mila-nav-link mila-nav-phone">📞 351 038 0392</a>
+        <a href="#abbonamento" class="mila-btn mila-btn-nav">Attiva a 300 € / Mese</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <img src="hero-bg.jpg" alt="Mila Collective" class="hero-bg-img">
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow" data-it="Il tuo Partner Strategico di Crescita" data-en="Your Strategic Growth Partner">Il tuo Partner Strategico di Crescita</p>
-      <h1 class="hero-heading">MILA COLLECTIVE</h1>
-      <p class="hero-sub" data-it="Creiamo funnel di vendita, campagne di marketing e posizionamento organico del brand — dal 2026, Firenze." data-en="We build sales funnels, marketing campaigns and organic brand positioning — since 2026, Florence.">Creiamo funnel di vendita, campagne di marketing e posizionamento organico del brand — dal 2026, Firenze.</p>
-      <a href="#contact" class="btn-ghost" data-it="Inizia la tua Crescita" data-en="Start Growing">Inizia la tua Crescita</a>
-    </div>
-  </section>
+  <main id="main-content">
 
-  <!-- Tagline Strip -->
-  <div class="tagline-strip">
-    <a href="chi-siamo.html" class="ticker-link">Growth Partner</a>
-    <span class="sep">·</span>
-    <a href="servizi/funnel-di-vendita.html" class="ticker-link">Funnel di Vendita</a>
-    <span class="sep">·</span>
-    <a href="servizi/campagne-marketing.html" class="ticker-link">Campagne di Marketing</a>
-    <span class="sep">·</span>
-    <a href="servizi/seo-posizionamento-organico.html" class="ticker-link">Posizionamento Organico</a>
-    <span class="sep">·</span>
-    <a href="servizi/branding-rebranding.html" class="ticker-link">Branding &amp; Rebranding</a>
-    <span class="sep">·</span>
-    <a href="servizi/social-media-management.html" class="ticker-link">Social Media</a>
-  </div>
-
-  <!-- ── CHI SIAMO ── -->
-  <section id="about" class="s-about">
-    <div class="s-about-text">
-      <p class="label">CHI SIAMO</p>
-      <h2>Non siamo un'agenzia.<br><em>Siamo il tuo partner di crescita.</em></h2>
-      <p>Siamo basati a Firenze. Costruiamo marketing che porta risultati reali.</p>
-      <a href="chi-siamo.html" class="btn-outline">Scopri di più →</a>
-    </div>
-    <div class="s-about-img">
-      <img src="team.jpg" alt="Mila — Firenze">
-    </div>
-  </section>
-
-  <!-- ── SERVIZI ── -->
-  <section id="services" class="s-services">
-    <div class="s-services-header">
-      <p class="label">I NOSTRI SERVIZI</p>
-      <p class="s-services-sub">Clicca su un servizio per saperne di più</p>
-    </div>
-    <div class="s-services-grid">
-
-      <a href="servizi/funnel-di-vendita.html" class="s-svc-card">
-        <img src="img-funnel.jpg" alt="Funnel di Vendita">
-        <div class="s-svc-overlay">
-          <span class="s-svc-num">01</span>
-          <h3>Funnel di Vendita</h3>
-          <p>Trasformiamo contatti in clienti.</p>
-          <span class="s-svc-arrow">→</span>
+    <!-- HERO SECTION -->
+    <section class="mila-hero" id="hero">
+      <div class="mila-container mila-hero-inner">
+        <div class="mila-badge-hero">
+          <span class="mila-badge-dot"></span>
+          <span>DISPONIBILITÀ IMMEDIATA · NESSUNA LISTA D'ATTESA</span>
         </div>
-      </a>
 
-      <a href="servizi/campagne-marketing.html" class="s-svc-card">
-        <img src="img-marketing.jpg" alt="Campagne di Marketing">
-        <div class="s-svc-overlay">
-          <span class="s-svc-num">02</span>
-          <h3>Campagne di Marketing</h3>
-          <p>Google, Meta, TikTok, LinkedIn.</p>
-          <span class="s-svc-arrow">→</span>
+        <h1 class="mila-hero-title">
+          Possiamo fare qualsiasi cosa vuoi.
+        </h1>
+
+        <p class="mila-hero-lead">
+          Il tuo <strong>Developer Tecnologico e Reparto Software Dedicato</strong> a quota unica fissa.
+          Siti web ultra-veloci, web app personalizzate, automazioni di processo, bot AI, CRM e integrazioni API.
+          Zero preventivi a ore. Nessun anticipo da 10.000 €.
+        </p>
+
+        <div class="mila-hero-pricebox">
+          <div class="mila-price-tag">
+            <span class="mila-price-curr">€</span>
+            <span class="mila-price-num">300</span>
+            <span class="mila-price-period">/ mese flat</span>
+          </div>
+          <span class="mila-price-note">Tutto compreso · Nessun vincolo · Disdici quando vuoi con 1 clic</span>
         </div>
-      </a>
 
-      <a href="servizi/seo-posizionamento-organico.html" class="s-svc-card">
-        <img src="img-seo.jpg" alt="Posizionamento Organico">
-        <div class="s-svc-overlay">
-          <span class="s-svc-num">03</span>
-          <h3>Posizionamento Organico</h3>
-          <p>Prima pagina su Google, organicamente.</p>
-          <span class="s-svc-arrow">→</span>
+        <div class="mila-hero-actions">
+          <a href="#abbonamento" class="mila-btn mila-btn-primary">
+            Attiva il tuo Abbonamento (300 €) →
+          </a>
+          <a href="https://wa.me/393510380392?text=Ciao%20Julian,%20vorrei%20informazioni%20sull%27abbonamento%20Mila%20Grow%20Partner%20da%20300%E2%82%AC/mese" target="_blank" rel="noopener noreferrer" class="mila-btn mila-btn-whatsapp">
+            <svg class="mila-icon-wa" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.84.5 3.56 1.37 5.04L2 22l5.12-1.34c1.43.8 3.07 1.34 4.92 1.34 5.52 0 10-4.48 10-10s-4.48-10-10-10zm5.82 14.15c-.24.68-1.21 1.3-1.74 1.37-.48.06-1.1.09-3.56-.9-3.08-1.25-5.06-4.38-5.21-4.59-.15-.2-1.26-1.68-1.26-3.21 0-1.53.8-2.28 1.09-2.58.29-.3.63-.38.84-.38.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.65.91 2.22.99 2.38.08.16.14.35.03.56-.11.21-.16.34-.32.53-.16.19-.34.42-.48.56-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.29 1.44 2.61 1.6.32.16.51.14.7-.08.19-.22.81-.95 1.03-1.27.22-.32.44-.27.73-.16.29.11 1.84.87 2.16 1.03.32.16.53.24.61.38.08.13.08.79-.16 1.47z"/>
+            </svg>
+            <span>WhatsApp con Julian: +39 351 038 0392</span>
+          </a>
         </div>
-      </a>
 
-      <a href="servizi/branding-rebranding.html" class="s-svc-card">
-        <img src="branding.jpg" alt="Branding">
-        <div class="s-svc-overlay">
-          <span class="s-svc-num">04</span>
-          <h3>Branding &amp; Identità</h3>
-          <p>Il tuo brand, indimenticabile.</p>
-          <span class="s-svc-arrow">→</span>
+        <div class="mila-hero-guarantees">
+          <div class="mila-guarantee-item">✓ Sviluppatore dedicato al tuo fianco</div>
+          <div class="mila-guarantee-item">✓ Codice 100% di tua proprietà</div>
+          <div class="mila-guarantee-item">✓ Rilasci rapidi e testati</div>
+          <div class="mila-guarantee-item">✓ Supporto diretto senza intermediari</div>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <a href="servizi/social-media-management.html" class="s-svc-card">
-        <img src="img-social.jpg" alt="Social Media">
-        <div class="s-svc-overlay">
-          <span class="s-svc-num">05</span>
-          <h3>Social Media</h3>
-          <p>Contenuti che costruiscono community.</p>
-          <span class="s-svc-arrow">→</span>
+    <!-- TICKER TECNOLOGICO -->
+    <section class="mila-ticker-wrap" aria-label="Tecnologie e Strumenti">
+      <div class="mila-ticker-track">
+        <span>NEXT.JS 16+</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>REACT & TYPESCRIPT</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>AUTOMAZIONI N8N & MAKE</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>INTELLIGENZA ARTIFICIALE & AGENTI BOT</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>POSTGRESQL & SUPABASE</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>STRIPE & SISTEMI DI PAGAMENTO</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>INTEGRAZIONI API & CRM CUSTOM</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>TAILWIND CSS & MOBILE-FIRST</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>NEXT.JS 16+</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>REACT & TYPESCRIPT</span>
+        <span class="mila-ticker-sep">✦</span>
+        <span>AUTOMAZIONI N8N & MAKE</span>
+      </div>
+    </section>
+
+    <!-- SEZIONE 1: COME FUNZIONA L'ABBONAMENTO FLAT -->
+    <section class="mila-section mila-section-alt" id="formula">
+      <div class="mila-container">
+        <div class="mila-section-head">
+          <span class="mila-section-kicker">SEMPLICE · VELOCE · TRASPARENTE</span>
+          <h2 class="mila-section-title">Come funziona l'abbonamento a 300 € / mese</h2>
+          <p class="mila-section-sub">
+            Abbiamo eliminato burocrazia, preventivi a ore e attese di settimane. Tutto avviene in un ciclo snello e orientato ai risultati.
+          </p>
         </div>
-      </a>
 
-      <a href="servizi/index.html" class="s-svc-card s-svc-card--all">
-        <div class="s-svc-overlay s-svc-overlay--dark">
-          <span class="s-svc-num">+</span>
-          <h3>Tutti i Servizi</h3>
-          <p>Email, PR, analytics e altro ancora.</p>
-          <span class="s-svc-arrow">→</span>
+        <div class="mila-steps-grid">
+          <article class="mila-step-card">
+            <span class="mila-step-num">01</span>
+            <h3 class="mila-step-title">Ci dici cosa ti serve</h3>
+            <p class="mila-step-desc">
+              Che sia una landing page, una web app, un'automazione che ti fa risparmiare 10 ore a settimana o un bot WhatsApp: ci invii la richiesta via chat o telefono.
+            </p>
+          </article>
+
+          <article class="mila-step-card">
+            <span class="mila-step-num">02</span>
+            <h3 class="mila-step-title">Lo sviluppiamo subito</h3>
+            <p class="mila-step-desc">
+              Lavoriamo in sprint rapidi focalizzati su una priorità attiva alla volta, per consegnarti codice pulito, funzionante e già collaudato su mobile.
+            </p>
+          </article>
+
+          <article class="mila-step-card">
+            <span class="mila-step-num">03</span>
+            <h3 class="mila-step-title">Modifichi finché non è perfetto</h3>
+            <p class="mila-step-desc">
+              Tutte le revisioni sono incluse. Non pagherai mai un euro in più per cambiare un pulsante, rifinire un layout o aggiungere un campo al form.
+            </p>
+          </article>
+
+          <article class="mila-step-card">
+            <span class="mila-step-num">04</span>
+            <h3 class="mila-step-title">Tariffa fissa e zero vincoli</h3>
+            <p class="mila-step-desc">
+              Paghi 300,00 € ogni mese. Se per un periodo non hai nuove esigenze, puoi mettere in pausa o cancellare l'abbonamento con un click, senza penali.
+            </p>
+          </article>
         </div>
-      </a>
+      </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- SEZIONE 2: COSA POSSIAMO FARE INSIEME -->
+    <section class="mila-section" id="servizi">
+      <div class="mila-container">
+        <div class="mila-section-head">
+          <span class="mila-section-kicker">VALORE CONCRETO</span>
+          <h2 class="mila-section-title">Cosa possiamo fare insieme</h2>
+          <p class="mila-section-sub">
+            Quando diciamo <em>"possiamo fare qualsiasi cosa vuoi"</em>, intendiamo coprire ogni esigenza tecnologica del tuo business moderno.
+          </p>
+        </div>
 
-  <!-- ── CTA ── -->
-  <section id="contact" class="s-cta">
-    <img src="hero-bg.jpg" alt="Mila" class="s-cta-bg">
-    <div class="s-cta-overlay"></div>
-    <div class="s-cta-inner">
-      <p class="label" style="color:var(--gold-light);">INIZIA ORA</p>
-      <h2>Pronto a far crescere<br><em>il tuo brand?</em></h2>
-      <p>Consulenza gratuita — risposta entro 48 ore.</p>
-      <div class="s-cta-btns">
-        <a href="contatti.html" class="btn-ghost">Contattaci →</a>
+        <div class="mila-services-grid">
+          
+          <article class="mila-service-box">
+            <div class="mila-service-icon">🌐</div>
+            <h3 class="mila-service-title">Siti Web &amp; Funnel di Vendita</h3>
+            <p class="mila-service-desc">
+              Siti vetrina ultraveloci, landing page ad alta conversione, portali aziendali e mini-siti di prodotto. Progettati mobile-first per convertire visitatori in clienti paganti.
+            </p>
+            <ul class="mila-service-tags">
+              <li>Next.js</li>
+              <li>Landing ad alta resa</li>
+              <li>SEO Tecnico</li>
+              <li>Design Adattivo</li>
+            </ul>
+          </article>
+
+          <article class="mila-service-box">
+            <div class="mila-service-icon">⚡️</div>
+            <h3 class="mila-service-title">Web App &amp; Gestionali su Misura</h3>
+            <p class="mila-service-desc">
+              Pannelli interni, dashboard statistiche, CRM dedicati per i tuoi commerciali, aree clienti riservate e sistemi di prenotazione o preventivazione automatica.
+            </p>
+            <ul class="mila-service-tags">
+              <li>Dashboard Custom</li>
+              <li>CRM Interni</li>
+              <li>Aree Riservate</li>
+              <li>Preventivatori 1-clic</li>
+            </ul>
+          </article>
+
+          <article class="mila-service-box">
+            <div class="mila-service-icon">⚙️</div>
+            <h3 class="mila-service-title">Automazioni &amp; Flussi n8n / Make</h3>
+            <p class="mila-service-desc">
+              Elimina ore di lavoro manuale noioso. Colleghiamo il tuo sito a Google Sheets, WhatsApp, sistemi di fatturazione, email e gestionali esterni senza errori umani.
+            </p>
+            <ul class="mila-service-tags">
+              <li>n8n Workflows</li>
+              <li>Zapier &amp; Make</li>
+              <li>Notifiche WhatsApp</li>
+              <li>Auto-Fatturazione</li>
+            </ul>
+          </article>
+
+          <article class="mila-service-box">
+            <div class="mila-service-icon">🤖</div>
+            <h3 class="mila-service-title">Intelligenza Artificiale &amp; Bot</h3>
+            <p class="mila-service-desc">
+              Chatbot per supporto clienti 24/7 addestrati sui tuoi documenti aziendali, bot WhatsApp per qualificare i lead, estrazione dati OCR e agenti AI operativi.
+            </p>
+            <ul class="mila-service-tags">
+              <li>Chatbot OpenAI / Claude</li>
+              <li>Bot WhatsApp</li>
+              <li>Lead Qualification</li>
+              <li>Document Processing</li>
+            </ul>
+          </article>
+
+          <article class="mila-service-box">
+            <div class="mila-service-icon">🔌</div>
+            <h3 class="mila-service-title">Integrazioni API &amp; Banche Dati</h3>
+            <p class="mila-service-desc">
+              Integrazione sicura di gateway di pagamento (Stripe, PayPal), architetture serverless, database PostgreSQL/Supabase e sincronizzazione dati tra piattaforme diverse.
+            </p>
+            <ul class="mila-service-tags">
+              <li>Stripe Checkout</li>
+              <li>Webhooks sicuri</li>
+              <li>PostgreSQL / Supabase</li>
+              <li>REST &amp; GraphQL</li>
+            </ul>
+          </article>
+
+          <article class="mila-service-box">
+            <div class="mila-service-icon">🛡️</div>
+            <h3 class="mila-service-title">Manutenzione, Fix &amp; Performance</h3>
+            <p class="mila-service-desc">
+              Risoluzione immediata di bug critici, aggiornamenti continui, velocizzazione tempi di caricamento, compliance GDPR e monitoraggio proattivo della stabilità.
+            </p>
+            <ul class="mila-service-tags">
+              <li>Zero Downtime</li>
+              <li>Bug fixing entro 24h</li>
+              <li>Mobile audit rigoroso</li>
+              <li>Sicurezza &amp; Backup</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE 3: COMPARATIVA DI MERCATO -->
+    <section class="mila-section mila-section-alt" id="confronto">
+      <div class="mila-container">
+        <div class="mila-section-head">
+          <span class="mila-section-kicker">PERCHÉ QUESTA FORMULA VINCE</span>
+          <h2 class="mila-section-title">Mila vs Mercato Tradizionale</h2>
+          <p class="mila-section-sub">
+            Confronta la nostra formula con le agenzie classiche e i freelance a ore. Numeri chiari, senza sorprese.
+          </p>
+        </div>
+
+        <div class="mila-compare-wrapper">
+          <table class="mila-compare-table" aria-label="Confronto Offerta">
+            <thead>
+              <tr>
+                <th>Parametro</th>
+                <th>Agenzia Software Tradizionale</th>
+                <th>Freelance a Ore</th>
+                <th class="mila-highlight-col">MILA GROW PARTNER</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Modello di Prezzo</strong></td>
+                <td>5.000 € – 25.000 € anticipati</td>
+                <td>40 € – 90 € / ora a consuntivo</td>
+                <td class="mila-highlight-col"><strong>300,00 € / mese flat</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Modifiche e Varianti</strong></td>
+                <td>Fatturate extra a caro prezzo</td>
+                <td>Ore aggiuntive imprevedibili</td>
+                <td class="mila-highlight-col"><strong>Sempre incluse nel mese</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Tempi di Avvio</strong></td>
+                <td>3–6 settimane di preventivi</td>
+                <td>Dipende dalla disponibilità</td>
+                <td class="mila-highlight-col"><strong>Immediato entro 24 ore</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Interlocutore</strong></td>
+                <td>Account commerciale non tecnico</td>
+                <td>Singolo esecutore isolato</td>
+                <td class="mila-highlight-col"><strong>Titolare Diretto: +39 351 038 0392</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Proprietà del Codice</strong></td>
+                <td>Spesso legata a canoni d'uscita</td>
+                <td>Spesso frammentata</td>
+                <td class="mila-highlight-col"><strong>100% Tua, sempre (GitHub/Vercel)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Vincolo Contrattuale</strong></td>
+                <td>Contratti vincolanti 12–24 mesi</td>
+                <td>Accordo a singolo progetto</td>
+                <td class="mila-highlight-col"><strong>Nessuno: disdici quando vuoi</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE 4: MODULO DI ATTIVAZIONE / CRM HOLDING -->
+    <section class="mila-section" id="abbonamento">
+      <div class="mila-container">
+        <div class="mila-plan-banner">
+          <div class="mila-plan-info">
+            <span class="mila-plan-tag">POSTAZIONE DEVELOPER FLAT</span>
+            <h2 class="mila-plan-title">Attiva il tuo Reparto Tecnologico</h2>
+            <p class="mila-plan-desc">
+              Compila il modulo o scrivi direttamente su WhatsApp. Entro 1 ora lavorativa concordiamo la prima priorità e mettiamo subito in moto lo sviluppo.
+            </p>
+            <div class="mila-plan-price-big">
+              <span class="mila-plan-eur">€</span>
+              <span class="mila-plan-val">300</span>
+              <span class="mila-plan-subval">,00 / mese</span>
+            </div>
+            <ul class="mila-plan-checklist">
+              <li>✓ Richieste e modifiche continue</li>
+              <li>✓ Siti, Web App, Automazioni n8n, AI e API</li>
+              <li>✓ Parli direttamente con il titolare Julian Herrera</li>
+              <li>✓ Zero penali di disdetta, libertà totale</li>
+            </ul>
+
+            <div class="mila-direct-callout">
+              <p class="mila-callout-label">PREFERISCI UNA CHIAMATA O WHATSAPP IMMEDIATO?</p>
+              <a href="tel:+393510380392" class="mila-callout-phone">📞 +39 351 038 0392</a>
+              <span class="mila-callout-avail">Disponibile dal lunedì al sabato</span>
+            </div>
+          </div>
+
+          <!-- Form collegato al CRM Holding e notifica WhatsApp -->
+          <div class="mila-plan-form-wrap">
+            <h3 class="mila-form-title">Inizia Subito</h3>
+            <p class="mila-form-sub">Inserisci i tuoi dati per attivare la collaborazione:</p>
+
+            <form class="mila-lead-form" id="milaLeadForm">
+              <div class="mila-field-group">
+                <label for="leadNome">Nome e Cognome / Referente *</label>
+                <input type="text" id="leadNome" name="nome" placeholder="es. Marco Rossi" required>
+              </div>
+
+              <div class="mila-field-group">
+                <label for="leadTelefono">Cellulare / WhatsApp *</label>
+                <input type="tel" id="leadTelefono" name="telefono" placeholder="es. +39 340 1234567" required>
+              </div>
+
+              <div class="mila-field-group">
+                <label for="leadEmail">Email Aziendale *</label>
+                <input type="email" id="leadEmail" name="email" placeholder="es. marco@azienda.it" required>
+              </div>
+
+              <div class="mila-field-group">
+                <label for="leadMessaggio">Cosa vuoi costruire o velocizzare prima? *</label>
+                <textarea id="leadMessaggio" name="messaggio" rows="4" placeholder="es. Vorrei rifare il sito per generare più contatti e automatizzare la ricezione dei preventivi su WhatsApp..." required></textarea>
+              </div>
+
+              <button type="submit" class="mila-btn mila-btn-submit" id="submitBtn">
+                Richiedi Attivazione a 300 € / Mese →
+              </button>
+
+              <div class="mila-form-status" id="formStatus" style="display:none;" aria-live="polite"></div>
+              
+              <p class="mila-form-footnote">
+                Inviando il modulo i tuoi dati vengono inoltrati al nostro canale diretto protetto Blue Arroyo S.r.l. Risposta entro 1 ora.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE 5: DOMANDE FREQUENTI (FAQ) -->
+    <section class="mila-section mila-section-alt" id="faq">
+      <div class="mila-container mila-faq-container">
+        <div class="mila-section-head">
+          <span class="mila-section-kicker">CHIAREZZA PRIMA DI TUTTO</span>
+          <h2 class="mila-section-title">Domande Frequenti</h2>
+        </div>
+
+        <div class="mila-faq-list">
+          <details class="mila-faq-item" open>
+            <summary class="mila-faq-question">
+              <span>Cosa significa davvero "Possiamo fare qualsiasi cosa vuoi"?</span>
+              <span class="mila-faq-icon">+</span>
+            </summary>
+            <div class="mila-faq-answer">
+              <p>
+                Significa che non siamo un'agenzia che sa solo installare template WordPress. Scriviamo codice su misura, sviluppiamo web app reattive, creiamo bot AI, colleghiamo API di terze parti e automatizziamo processi aziendali con n8n e Make. Se ha una logica e può girare su un computer, noi possiamo svilupparlo per te.
+              </p>
+            </div>
+          </details>
+
+          <details class="mila-faq-item">
+            <summary class="mila-faq-question">
+              <span>Come vengono gestite le priorità di sviluppo?</span>
+              <span class="mila-faq-icon">+</span>
+            </summary>
+            <div class="mila-faq-answer">
+              <p>
+                Lavoriamo con il metodo del flusso continuo: una o due priorità attive alla volta. Completiamo, collaudiamo e consegniamo il task, dopodiché passiamo immediatamente al successivo nella tua lista. Questo evita dispersioni e garantisce la massima velocità esecutiva.
+              </p>
+            </div>
+          </details>
+
+          <details class="mila-faq-item">
+            <summary class="mila-faq-question">
+              <span>C'è un vincolo contrattuale minimo di permanenza?</span>
+              <span class="mila-faq-icon">+</span>
+            </summary>
+            <div class="mila-faq-answer">
+              <p>
+                Assolutamente no. L'abbonamento si rinnova di mese in mese a 300,00 €. Puoi decidere di utilizzarlo per due mesi per realizzare un grande progetto e poi sospenderlo, oppure mantenerlo attivo continuativamente per avere il tuo sviluppatore sempre al lavoro.
+              </p>
+            </div>
+          </details>
+
+          <details class="mila-faq-item">
+            <summary class="mila-faq-question">
+              <span>A chi appartiene il codice sorgente e la proprietà intellettuale?</span>
+              <span class="mila-faq-icon">+</span>
+            </summary>
+            <div class="mila-faq-answer">
+              <p>
+                Al 100% a te. Tutto ciò che sviluppiamo viene rilasciato sul tuo repository GitHub, sui tuoi server o sul tuo account Vercel/Cloud. Nessun lock-in né clausola capestro.
+              </p>
+            </div>
+          </details>
+
+          <details class="mila-faq-item">
+            <summary class="mila-faq-question">
+              <span>Come comunichiamo durante il lavoro?</span>
+              <span class="mila-faq-icon">+</span>
+            </summary>
+            <div class="mila-faq-answer">
+              <p>
+                Direttamente tramite WhatsApp, telefono o videochiamata con il titolare Julian Herrera (+39 351 038 0392). Zero ticket impersonali, zero filtri commerciali.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOX DI CHIUSURA: CONTATTO TITOLARE -->
+    <section class="mila-section mila-founder-section">
+      <div class="mila-container">
+        <div class="mila-founder-box">
+          <div class="mila-founder-text">
+            <span class="mila-founder-kicker">CONTATTO DIRETTO TITOLARE</span>
+            <h2 class="mila-founder-title">Parla direttamente con Julian Herrera</h2>
+            <p class="mila-founder-p">
+              Nessun commerciale intermedio. Se vuoi capire come accelerare il tuo business con un partner tecnologico a tariffa fissa di 300 € / mese, chiamami o scrivimi su WhatsApp ora stesso.
+            </p>
+            <div class="mila-founder-actions">
+              <a href="tel:+393510380392" class="mila-btn mila-btn-primary">
+                📞 Chiama: +39 351 038 0392
+              </a>
+              <a href="https://wa.me/393510380392?text=Ciao%20Julian,%20vorrei%20informazioni%20sull%27abbonamento%20Mila%20Grow%20Partner" target="_blank" rel="noopener noreferrer" class="mila-btn mila-btn-whatsapp">
+                💬 Scrivi su WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="mila-founder-card">
+            <div class="mila-avatar-circle">JH</div>
+            <div class="mila-card-details">
+              <strong>Julian Herrera</strong>
+              <span>Lead Tecnologico &amp; Titolare</span>
+              <span class="mila-company-badge">Blue Arroyo S.r.l. · Firenze</span>
+              <span class="mila-phone-badge">+39 351 038 0392</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mila-footer">
+    <div class="mila-container mila-footer-inner">
+      <div class="mila-footer-col">
+        <span class="mila-footer-brand">MILA GROW PARTNER</span>
+        <p class="mila-footer-desc">
+          Divisione Tecnologica di <strong>Blue Arroyo S.r.l.</strong><br>
+          Developer &amp; Partner Tecnologico a tariffa fissa di 300,00 € / mese.<br>
+          Via Matteo Palmieri 20/R, 50122 Firenze (FI) · P.IVA / C.F. Blue Arroyo S.r.l.
+        </p>
+      </div>
+
+      <div class="mila-footer-col">
+        <span class="mila-footer-heading">Navigazione Rapida</span>
+        <ul class="mila-footer-links">
+          <li><a href="#formula">Come Funziona</a></li>
+          <li><a href="#servizi">Cosa Possiamo Fare</a></li>
+          <li><a href="#confronto">Comparativa di Mercato</a></li>
+          <li><a href="#abbonamento">Attiva Abbonamento (300 €)</a></li>
+          <li><a href="#faq">Domande Frequenti</a></li>
+        </ul>
+      </div>
+
+      <div class="mila-footer-col">
+        <span class="mila-footer-heading">Contatto Diretto</span>
+        <ul class="mila-footer-links">
+          <li><a href="tel:+393510380392">Telefono: +39 351 038 0392</a></li>
+          <li><a href="https://wa.me/393510380392" target="_blank" rel="noopener noreferrer">WhatsApp: +39 351 038 0392</a></li>
+          <li><a href="mailto:info@milagrowpartner.com">Email: info@milagrowpartner.com</a></li>
+          <li><a href="https://palazzobluearroyo.it" target="_blank" rel="noopener noreferrer">Holding: palazzobluearroyo.it</a></li>
+        </ul>
       </div>
     </div>
-  </section>
 
-
-
-
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo-name-sm">MILA COLLECTIVE</span>
-        <span class="footer-tagline">Growth Partner · Firenze, Italia</span>
-      </div>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="chi-siamo.html">Chi Siamo</a>
-        <a href="contatti.html">Contatti</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Mila Collective. Tutti i diritti riservati.</p>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookie Policy</a>
+    <div class="mila-footer-bottom">
+      <div class="mila-container mila-footer-bottom-inner">
+        <p>© 2026 Mila Grow Partner · Blue Arroyo S.r.l. Tutti i diritti riservati.</p>
+        <p class="mila-rule-zero">Regola Zero: Informazioni reali e verificate al 100%.</p>
       </div>
     </div>
   </footer>
 
   <script src="index.js"></script>
-
-  <!-- SUCCESS MODAL (shown when FormSubmit redirects back with ?success=true) -->
-  <div id="home-success-modal" style="
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(13,13,13,0.88);
-    z-index:9999;
-    align-items:center;
-    justify-content:center;
-    backdrop-filter:blur(8px);
-  ">
-    <div style="
-      background:#fafaf8;
-      max-width:500px;
-      width:90%;
-      padding:56px 44px;
-      text-align:center;
-      animation: modalFadeIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
-    ">
-      <div style="
-        width:64px;height:64px;border-radius:50%;
-        background:#0d0d0d;color:#b8965a;
-        display:flex;align-items:center;justify-content:center;
-        margin:0 auto 24px;font-size:30px;line-height:1;
-      ">✓</div>
-      <p style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#b8965a;font-weight:600;margin-bottom:10px;">MESSAGGIO RICEVUTO</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#0d0d0d;line-height:1.2;margin-bottom:14px;">
-        Grazie! Ti <em style="font-style:italic;color:#8c897f;">ricontattiamo</em> entro 48h.
-      </h2>
-      <p style="font-size:14px;color:#8c897f;line-height:1.8;font-weight:300;margin-bottom:32px;">
-        La tua richiesta è stata inviata a <strong style="color:#0d0d0d;">hello@bluearroyo.it</strong>.<br>
-        Il nostro team ti risponderà con una strategia personalizzata.
-      </p>
-      <button onclick="document.getElementById('home-success-modal').style.display='none'" style="
-        background:#0d0d0d;color:#fafaf8;border:none;
-        font-size:11px;letter-spacing:0.15em;text-transform:uppercase;
-        padding:15px 36px;cursor:pointer;font-family:inherit;font-weight:500;
-      ">Continua a Esplorare</button>
-    </div>
-  </div>
-
-  <style>
-    @keyframes modalFadeIn {
-      from { opacity:0; transform:scale(0.88) translateY(24px); }
-      to   { opacity:1; transform:scale(1) translateY(0); }
-    }
-  </style>
-
-  <script>
-    // Show modal if FormSubmit redirected with ?success=true
-    if (window.location.search.includes('success=true')) {
-      document.getElementById('home-success-modal').style.display = 'flex';
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-    // Button loading state
-    const homeForm = document.getElementById('contact-form');
-    const homeBtn  = document.getElementById('home-submit-btn');
-    if (homeForm && homeBtn) {
-      homeForm.addEventListener('submit', function() {
-        homeBtn.textContent = 'Invio in corso...';
-        homeBtn.style.opacity = '0.6';
-        homeBtn.disabled = true;
-      });
-    }
-
-    // ─── LANGUAGE SWITCHER ───
-    function setLang(lang) {
-      // Update all elements with data-it / data-en
-      document.querySelectorAll('[data-it]').forEach(el => {
-        el.textContent = lang === 'it' ? el.dataset.it : el.dataset.en;
-      });
-      // Update active button
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('lang-active', btn.textContent.trim().toLowerCase() === lang);
-      });
-      // Persist choice
-      localStorage.setItem('mila-lang', lang);
-      document.documentElement.lang = lang;
-    }
-
-    // Apply saved language on load
-    const savedLang = localStorage.getItem('mila-lang') || 'it';
-    if (savedLang === 'en') setLang('en');
-
-  </script>
 </body>
 </html>
-

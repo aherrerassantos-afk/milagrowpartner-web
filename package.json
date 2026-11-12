@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist_assets && mkdir -p dist_assets && cp -r *.html *.css *.js *.jpg *.mp3 blog servizi dist_assets/",
+    "build": "rm -rf dist && mkdir -p dist && cp -r *.html *.css *.js *.jpg *.png *.mp3 *.ico *.xml *.txt dist/ 2>/dev/null || true; mkdir -p dist/api && cp -r api/* dist/api/ 2>/dev/null || true; cp -r blog servizi dist/ 2>/dev/null || true; cp -r dist_assets/* dist/ 2>/dev/null || true",
+    "check:mobile": "node scripts/check-mobile.js",
     "desktop:dev": "tauri dev",
     "desktop:build": "tauri build"
   },
